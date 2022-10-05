@@ -1,0 +1,82 @@
+File Version	v3.05.00
+Modified Date	10/05/2022
+Modified Time	11:39:51
+
+LoadID	LoadName	RoomID	DIM_setting	Ramp_time	Upper_limit	Lower_limit	TotalWattage
+148	CortinasA	5	False	300	100	0	200
+149	CortinasB	5	False	300	100	0	200
+167	Campainha Som B	9	False	300	100	0	100
+168	TravaPinoSocial	4	False	300	100	0	100
+169	TravaPinoServico	9	False	300	100	0	100
+171	Campainha Som A	9	False	300	100	0	100
+172	EsperaGessoA	3	False	300	100	0	100
+173	EsperaGessoB	3	False	300	100	0	100
+174	SancaLed	2	False	300	100	0	100
+27	Lustre Entrada	4	True	300	100	0	100
+183	Campainha	-1	False	300	100	0	100
+28	Lustre Mesa Jantar	5	True	300	100	0	100
+29	Sanca Led	6	True	300	100	0	100
+30	LED no Movel	6	False	300	100	0	100
+31	Lustre e Exaustor	6	False	300	100	0	100
+32	Movel HT LED	5	False	300	100	0	100
+33	Teto	5	True	300	100	0	50
+34	Teto Lin. Corredor	5	True	300	100	0	50
+35	Teto Lin. Par. Fundo	5	True	300	100	0	50
+36	Teto Lin. Janelas	5	True	300	100	0	50
+37	Teto Linha Sofa	5	True	300	100	0	50
+38	Teto Lin. Frente Sofa	5	True	300	100	0	50
+39	Teto	7	False	300	100	0	50
+40	Ent Corredor	8	False	300	100	0	50
+41	Teto em cima Fogao	8	False	300	100	0	50
+42	Gesso	8	False	300	100	0	120
+43	Teto pia Cozinha	8	False	300	100	0	50
+44	Gesso LED	9	False	300	100	0	100
+45	Teto	9	False	300	100	0	50
+46	Entrada Servico	9	False	300	100	0	50
+47	Teto	10	False	300	100	0	100
+48	Teto	14	False	300	100	0	50
+49	Teto	3	True	300	100	0	50
+50	Teto Central	3	True	300	100	0	50
+51	Gesso LED	3	False	300	100	0	100
+52	Teto	12	False	300	100	0	50
+53	Movel	12	False	300	100	0	100
+54	Teto Entrada	1	True	300	100	0	50
+55	Cabeceira Cama	1	True	300	100	0	50
+56	Teto Closet	1	True	300	100	0	50
+57	Teto Central	1	True	300	100	0	50
+58	Gesso LED	1	False	300	100	0	100
+59	Corda LED	1	False	300	100	0	100
+60	Teto Centro	11	False	300	100	0	50
+61	Movel Caramim	11	False	300	100	0	100
+62	Teto Pias	11	False	300	100	0	50
+63	Teto Box	11	False	300	100	0	50
+64	Teto Centro	2	True	300	100	0	50
+65	Mesa	2	False	300	100	0	50
+66	Teto Entrada	2	False	300	100	0	50
+67	Teto Centro	13	False	300	100	0	50
+68	Movel	13	False	300	100	0	100
+69	Movel LED	8	False	300	100	0	120
+70	Movel LED	7	False	300	100	0	120
+71	Aquec Toalhas Banho	11	False	300	100	0	100
+72	Tom. Lenc Ele A	1	True	300	100	0	100
+73	Aquec Toalhas	12	False	300	100	0	100
+74	Tom Lenc Ele B	1	True	300	100	0	100
+75	Aquec Espelho	11	False	300	100	0	100
+76	Aquec Espelho	12	False	300	100	0	100
+103	Churrasqueira Interna	8	False	300	100	0	50
+104	Abajur Tom Piso	5	True	300	100	0	100
+131	TomLenEleC	3	True	300	100	0	100
+133	AbajurD	1	True	300	100	0	100
+134	AbajurE	1	True	300	100	0	100
+135	AbajurF	3	True	300	100	0	100
+136	PisoAquecido	11	False	300	100	0	100
+137	FitaLedGesso	5	False	300	100	0	50
+138	Cortinas	3	False	300	100	0	200
+139	Persianas	3	False	300	100	0	200
+140	Cortinas	2	False	300	100	0	200
+141	Persianas	2	False	300	100	0	200
+142	CortinasA	1	False	300	100	0	200
+143	CortinasB	1	False	300	100	0	200
+144	PersianasA	1	False	300	100	0	200
+145	PersianasB	1	False	300	100	0	200
+

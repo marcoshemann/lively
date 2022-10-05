@@ -1,0 +1,744 @@
+<html>
+	<head>
+		<title>Connection Sheet</title>
+		<style type="text/css">
+			<!--
+                #subDevice {padding-left: 0.7in; margin-top: 0.05in; padding-bottom: 0.1in}
+                .imgshrink          { margin-top:0.0in;
+                margin-bottom:0.0in;
+                width: 100%;
+                border: 1pt solid black }
+                .imgnormal          { margin-top:0.0in;
+                margin-bottom:0.0in;
+                border: 1pt solid black }
+
+                .r0                 { background-color: rgb(232,232,232) }
+                .r1                 { background-color: white }
+
+                .test               { border: 1pt solid red }
+
+                .smallerfont        { font-size: 80%;
+                width:2.25in }
+
+                table.header               { font-family:Arial, Helvetica;
+                font-size: 10pt;
+                border-collapse:collapse;
+                width:100%;
+                empty-cells: show;
+                margin-bottom: 0.05in;
+                cell-padding:0.01in }
+
+                table.header_title        { font-family:Arial, Helvetica;
+                font-size: 10pt;
+                border-collapse:collapse;
+                width:100%;
+                empty-cells: show;
+                margin-bottom: 0.01in;
+                cell-padding:0.01in }
+
+                table               { font-family:Arial, Helvetica;
+                font-size: 10pt;
+                border-collapse:collapse;
+                width:100%;
+                empty-cells: show;
+                margin-bottom: 0.05in;
+                cell-padding:0.01in }
+
+
+                table.sidebar       { margin-right:0.02in;
+                font-size:70%;
+                width:2in }
+
+                td                  { padding: 0.01in }
+                td.controldevice    { font-weight: normal; font-size: 9pt;
+                border-bottom:0.01in solid black }
+
+                td.header           { border-bottom:0.05in solid black;
+                padding-top:0.1in}
+
+                td.footer           { border-bottom:0.01in solid black;
+                border-right:0.01in solid black;
+                text-align:left;
+                vertical-align:center;
+                padding-left:0.05in }
+
+                td.lines            { border-bottom: 1pt solid rgb (214,214,214);
+                vertical-align:top }
+
+                td.outputdeviceinfo {font-style: italic; font-size: 10pt }
+
+                td.pagejoin         { font-weight: bold; font-size: 10pt;
+                text-align:right;
+                border-top:0.01in solid black;
+                border-bottom:0.01in solid black }
+
+                tr.pageseparate     { background: rgb(214,214,214);
+                vertical-align:center;
+                height:0.3in }
+                td.pagetitle        { font-size: 10pt;
+                border-top:0.01in solid black;
+                border-bottom:0.01in solid black }
+
+                td.reporttitle      { font-weight: bold; font-size: 12pt}
+
+
+                tr.sectionheader    { background: silver; color: black; font-weight: bold }
+
+                td.sectionheader    { background: black; color: white; font-weight: bold }
+
+                td.titlebottom      { border-bottom:0.05in solid rgb(170,170,170) }
+                td.titletop         { border-top:0.05in solid rgb(170,170,170) }
+
+                tr.header           { font-weight:bold }
+
+                tr.titleblock       { font-weight: normal; font-size: 10pt;
+                vertical-align:top }
+
+              -->
+		</style>
+	</head>
+	<body>
+		<table class="header" width="100%">
+			<tr>
+				<td colspan="25" rowspan="3">
+					<img width="200" src="logogr.jpg"/>
+				</td>
+			</tr>
+			<tr/>
+			<tr/>
+			<tr class="titleblock">
+				<td class="titletop" width="100%" colspan="25">
+					<table class="header_title">
+						<tr>
+							<td align="right" width="8%">
+								<b>Report: </b>
+							</td>
+							<td width="92%">Connection Sheet</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr class="titleblock">
+				<td width="8%" align="right">
+					<b>Project: </b>
+				</td>
+				<td width="32%">Lively010116</td>
+				<td width="13%" align="right">
+					<b>Dealer: </b>
+				</td>
+				<td width="47%">MHemann Tecnologia Ltda</td>
+			</tr>
+			<tr class="titleblock">
+				<td align="right">
+					<b>Creator: </b>
+				</td>
+				<td>
+                    Crestron D3 Pro v3.03.002</td>
+				<td align="right">
+					<b>Description: </b>
+				</td>
+				<td></td>
+			</tr>
+			<tr class="titleblock">
+				<td class="titlebottom" align="right">
+					<b>Date: </b>
+				</td>
+				<td class="titlebottom">12/04/2016</td>
+				<td class="titlebottom" align="right">
+					<b>System Number:</b>
+				</td>
+				<td class="titlebottom"></td>
+			</tr>
+		</table>
+		<br/>
+		<table bgcolor="white" border="1" bordercolor="black">
+			<tr>
+				<td class="controldevice">
+								Control Processor: PAC2M<br/>
+	            				Location: Sala de Equipamentos</td>
+			</tr>
+			<tr>
+				<td>
+					<table width="100%">
+						<tr class="header">
+							<td class="header" width="8%">Address</td>
+							<td class="header" width="40%">Name</td>
+							<td class="header" width="52%">Notes</td>
+						</tr>
+						<tr class="r1">
+							<td class="lines">Slot 01</td>
+							<td class="lines">C2I-PAC2M-DI4<span style="font-size: 9pt">
+        	                    	            : Digital Input Card</span>
+							</td>
+							<td class="lines"></td>
+						</tr>
+						<tr>
+							<td colspan="4" bgcolor="white">
+								<div ID="subDevice">
+									<table border="1" bordercolor="black" bgcolor="white" width="100%">
+										<tr>
+											<td>
+												<table width="100%">
+													<tr class="header">
+														<td class="header" width="8%">Address</td>
+														<td class="header" width="40%">Name</td>
+														<td class="header" width="52%">Notes</td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">Port 01</td>
+														<td class="lines">DI-Port - not connected</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">Port 02</td>
+														<td class="lines">DI-Port - not connected</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">Port 03</td>
+														<td class="lines">DI-Port - not connected</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">Port 04</td>
+														<td class="lines">DI-Port - not connected</td>
+														<td class="lines"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</td>
+						</tr>
+						<tr class="r0">
+							<td class="lines">Slot 02</td>
+							<td class="lines">C2I-PAC2M-RY4<span style="font-size: 9pt">
+        	                    	            : 4 Isolated N.O. Relays</span>
+							</td>
+							<td class="lines"></td>
+						</tr>
+						<tr>
+							<td colspan="4" bgcolor="white">
+								<div ID="subDevice">
+									<table border="1" bordercolor="black" bgcolor="white" width="100%">
+										<tr>
+											<td>
+												<table width="100%">
+													<tr class="header">
+														<td class="header" width="8%">Address</td>
+														<td class="header" width="40%">Name</td>
+														<td class="header" width="52%">Notes</td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">Port 01</td>
+														<td class="lines">Relay - not connected</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">Port 02</td>
+														<td class="lines">Relay - not connected</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">Port 03</td>
+														<td class="lines">Relay - not connected</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">Port 04</td>
+														<td class="lines">Relay - not connected</td>
+														<td class="lines"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</td>
+						</tr>
+						<tr class="r1">
+							<td class="lines">Slot 03</td>
+							<td class="lines">C2Net-Device<span style="font-size: 9pt">
+        	                    	            : Cresnet Address</span>
+							</td>
+							<td class="lines"></td>
+						</tr>
+						<tr>
+							<td colspan="4" bgcolor="white">
+								<div ID="subDevice">
+									<table border="1" bordercolor="black" bgcolor="white" width="100%">
+										<tr>
+											<td>
+												<table width="100%">
+													<tr class="header">
+														<td class="header" width="8%">Address</td>
+														<td class="header" width="40%">Name</td>
+														<td class="header" width="52%">Notes</td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">ID 11</td>
+														<td class="lines">CNX-B12<span style="font-size: 9pt">
+        	                    	            : Wall-mount Cresnet keypad for lighting with 12 buttons, temperature sensor, and sound</span>
+															<br/><span style="font-size: 8pt"><i>Living</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">ID 12</td>
+														<td class="lines">CNX-B12<span style="font-size: 9pt">
+        	                    	            : Wall-mount Cresnet keypad for lighting with 12 buttons, temperature sensor, and sound</span>
+															<br/><span style="font-size: 8pt"><i>Suite Single</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">ID 13</td>
+														<td class="lines">CNX-B12<span style="font-size: 9pt">
+        	                    	            : Wall-mount Cresnet keypad for lighting with 12 buttons, temperature sensor, and sound</span>
+															<br/><span style="font-size: 8pt"><i>Suite Master</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">ID 14</td>
+														<td class="lines">CNX-B8<span style="font-size: 9pt">
+        	                    	            : Wall-mount Cresnet keypad for lighting with 8 buttons, temperature sensor, and sound</span>
+															<br/><span style="font-size: 8pt"><i>Banheiro Suite Master</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">ID 15</td>
+														<td class="lines">CNX-B12<span style="font-size: 9pt">
+        	                    	            : Wall-mount Cresnet keypad for lighting with 12 buttons, temperature sensor, and sound</span>
+															<br/><span style="font-size: 8pt"><i>Suite Hospede</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">ID 16</td>
+														<td class="lines">CNX-B6<span style="font-size: 9pt">
+        	                    	            : Wall-mount Cresnet keypad for lighting with 6 buttons, temperature sensor, and sound</span>
+															<br/><span style="font-size: 8pt"><i>Cozinha</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">ID 17</td>
+														<td class="lines">CNX-B6<span style="font-size: 9pt">
+        	                    	            : Wall-mount Cresnet keypad for lighting with 6 buttons, temperature sensor, and sound</span>
+															<br/><span style="font-size: 8pt"><i>Office</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">ID 18</td>
+														<td class="lines">CNX-B4<span style="font-size: 9pt">
+        	                    	            : Wall-mount Cresnet keypad for lighting with 4 buttons, temperature sensor, and sound</span>
+															<br/><span style="font-size: 8pt"><i>Banheiro Suite Single</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">ID 19</td>
+														<td class="lines">CNX-B4<span style="font-size: 9pt">
+        	                    	            : Wall-mount Cresnet keypad for lighting with 4 buttons, temperature sensor, and sound</span>
+															<br/><span style="font-size: 8pt"><i>Hall</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">ID 20</td>
+														<td class="lines">CNX-B4<span style="font-size: 9pt">
+        	                    	            : Wall-mount Cresnet keypad for lighting with 4 buttons, temperature sensor, and sound</span>
+															<br/><span style="font-size: 8pt"><i>Lavabo</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">ID 21</td>
+														<td class="lines">CNX-B4<span style="font-size: 9pt">
+        	                    	            : Wall-mount Cresnet keypad for lighting with 4 buttons, temperature sensor, and sound</span>
+															<br/><span style="font-size: 8pt"><i>Area de Servico</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">ID 22</td>
+														<td class="lines">CNX-B4<span style="font-size: 9pt">
+        	                    	            : Wall-mount Cresnet keypad for lighting with 4 buttons, temperature sensor, and sound</span>
+															<br/><span style="font-size: 8pt"><i>Banheiro Suite Hospede</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">ID 23</td>
+														<td class="lines">CNX-B4<span style="font-size: 9pt">
+        	                    	            : Wall-mount Cresnet keypad for lighting with 4 buttons, temperature sensor, and sound</span>
+															<br/><span style="font-size: 8pt"><i>Corredor</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">ID 60</td>
+														<td class="lines">CLX-1DIM8<span style="font-size: 9pt">
+                                            : "MO01"
+        	                    	        </span>
+															<br/><span style="font-size: 8pt"><i>Sala de Equipamentos</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">ID 61</td>
+														<td class="lines">CLX-1DIM8<span style="font-size: 9pt">
+                                            : "MO02"
+        	                    	        </span>
+															<br/><span style="font-size: 8pt"><i>Sala de Equipamentos</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">ID 62</td>
+														<td class="lines">CLX-1DIM8<span style="font-size: 9pt">
+                                            : "MO03"
+        	                    	        </span>
+															<br/><span style="font-size: 8pt"><i>Sala de Equipamentos</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">ID 80</td>
+														<td class="lines">DIN-8SW8<span style="font-size: 9pt">
+                                            : "MO04"
+        	                    	        </span>
+															<br/><span style="font-size: 8pt"><i>Sala de Equipamentos</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">ID 81</td>
+														<td class="lines">DIN-8SW8<span style="font-size: 9pt">
+                                            : "MO05"
+        	                    	        </span>
+															<br/><span style="font-size: 8pt"><i>Sala de Equipamentos</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">ID 82</td>
+														<td class="lines">DIN-8SW8<span style="font-size: 9pt">
+                                            : "MO06"
+        	                    	        </span>
+															<br/><span style="font-size: 8pt"><i>Sala de Equipamentos</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">ID 83</td>
+														<td class="lines">DIN-8SW8<span style="font-size: 9pt">
+                                            : "MO07"
+        	                    	        </span>
+															<br/><span style="font-size: 8pt"><i>Sala de Equipamentos</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">ID 84</td>
+														<td class="lines">DIN-8SW8<span style="font-size: 9pt">
+                                            : "MO08"
+        	                    	        </span>
+															<br/><span style="font-size: 8pt"><i>Sala de Equipamentos</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">ID 85</td>
+														<td class="lines">DIN-8SW8<span style="font-size: 9pt">
+                                            : "MO17"
+        	                    	        </span>
+															<br/><span style="font-size: 8pt"><i>Sala de Equipamentos</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">ID 86</td>
+														<td class="lines">DIN-IO8<span style="font-size: 9pt">
+                                            : "MO09"
+        	                    	        </span>
+															<br/><span style="font-size: 8pt"><i>Sala de Equipamentos</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr>
+														<td colspan="4" bgcolor="white">
+															<div ID="subDevice">
+																<table border="1" bordercolor="black" bgcolor="white" width="100%">
+																	<tr>
+																		<td>
+																			<table width="100%">
+																				<tr class="header">
+																					<td class="header" width="8%">Address</td>
+																					<td class="header" width="40%">Name</td>
+																					<td class="header" width="52%">Notes</td>
+																				</tr>
+																				<tr class="r1">
+																					<td class="lines">Port 01</td>
+																					<td class="lines">Entrando - Motion Detector<br/><span style="font-size: 8pt"><i>Banheiro Suite Master</i></span>
+																					</td>
+																					<td class="lines"></td>
+																				</tr>
+																				<tr class="r0">
+																					<td class="lines">Port 02</td>
+																					<td class="lines">Saindo - Motion Detector<br/><span style="font-size: 8pt"><i>Banheiro Suite Master</i></span>
+																					</td>
+																					<td class="lines"></td>
+																				</tr>
+																				<tr class="r1">
+																					<td class="lines">Port 03</td>
+																					<td class="lines">Hall Porta Aberta<br/><span style="font-size: 8pt"><i>Hall</i></span>
+																					</td>
+																					<td class="lines"></td>
+																				</tr>
+																				<tr class="r0">
+																					<td class="lines">Port 04</td>
+																					<td class="lines">Servico Porta Aberta<br/><span style="font-size: 8pt"><i>Area de Servico</i></span>
+																					</td>
+																					<td class="lines"></td>
+																				</tr>
+																				<tr class="r1">
+																					<td class="lines">Port 05</td>
+																					<td class="lines">DIO-Port - not connected</td>
+																					<td class="lines"></td>
+																				</tr>
+																				<tr class="r0">
+																					<td class="lines">Port 06</td>
+																					<td class="lines">DIO-Port - not connected</td>
+																					<td class="lines"></td>
+																				</tr>
+																				<tr class="r1">
+																					<td class="lines">Port 07</td>
+																					<td class="lines">DIO-Port - not connected</td>
+																					<td class="lines"></td>
+																				</tr>
+																				<tr class="r0">
+																					<td class="lines">Port 08</td>
+																					<td class="lines">DIO-Port - not connected</td>
+																					<td class="lines"></td>
+																				</tr>
+																			</table>
+																		</td>
+																	</tr>
+																</table>
+															</div>
+														</td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">ID 87</td>
+														<td class="lines">DIN-IO8<span style="font-size: 9pt">
+                                            : "MO18"
+        	                    	        </span>
+															<br/><span style="font-size: 8pt"><i>Sala de Equipamentos</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr>
+														<td colspan="4" bgcolor="white">
+															<div ID="subDevice">
+																<table border="1" bordercolor="black" bgcolor="white" width="100%">
+																	<tr>
+																		<td>
+																			<table width="100%">
+																				<tr class="header">
+																					<td class="header" width="8%">Address</td>
+																					<td class="header" width="40%">Name</td>
+																					<td class="header" width="52%">Notes</td>
+																				</tr>
+																				<tr class="r1">
+																					<td class="lines">Port 01</td>
+																					<td class="lines">CampainhaSocial<br/><span style="font-size: 8pt"><i>Hall</i></span>
+																					</td>
+																					<td class="lines"></td>
+																				</tr>
+																				<tr class="r0">
+																					<td class="lines">Port 02</td>
+																					<td class="lines">CampainhaServico<br/><span style="font-size: 8pt"><i>Area de Servico</i></span>
+																					</td>
+																					<td class="lines"></td>
+																				</tr>
+																				<tr class="r1">
+																					<td class="lines">Port 03</td>
+																					<td class="lines">PulsadorLDLuzBanhoServico<br/><span style="font-size: 8pt"><i>Banheiro Servico</i></span>
+																					</td>
+																					<td class="lines"></td>
+																				</tr>
+																				<tr class="r0">
+																					<td class="lines">Port 04</td>
+																					<td class="lines">PulsadorLDLuzCozinha<br/><span style="font-size: 8pt"><i>Cozinha</i></span>
+																					</td>
+																					<td class="lines"></td>
+																				</tr>
+																				<tr class="r1">
+																					<td class="lines">Port 05</td>
+																					<td class="lines">CM02AlOut<br/><span style="font-size: 8pt"><i>Area de Servico</i></span>
+																					</td>
+																					<td class="lines"></td>
+																				</tr>
+																				<tr class="r0">
+																					<td class="lines">Port 06</td>
+																					<td class="lines">CM01AlIn<br/><span style="font-size: 8pt"><i>Hall</i></span>
+																					</td>
+																					<td class="lines"></td>
+																				</tr>
+																				<tr class="r1">
+																					<td class="lines">Port 07</td>
+																					<td class="lines">CM01AlOut<br/><span style="font-size: 8pt"><i>Hall</i></span>
+																					</td>
+																					<td class="lines"></td>
+																				</tr>
+																				<tr class="r0">
+																					<td class="lines">Port 08</td>
+																					<td class="lines">CM02AlIn<br/><span style="font-size: 8pt"><i>Area de Servico</i></span>
+																					</td>
+																					<td class="lines"></td>
+																				</tr>
+																			</table>
+																		</td>
+																	</tr>
+																</table>
+															</div>
+														</td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">ID A0</td>
+														<td class="lines">C2N-SDC<span style="font-size: 9pt">
+                                            : "Net-Device ID A0"
+        	                    	        </span>
+															<br/><span style="font-size: 8pt"><i>Suite Hospede</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">ID A1</td>
+														<td class="lines">C2N-SDC<span style="font-size: 9pt">
+                                            : "Net-Device ID A1"
+        	                    	        </span>
+															<br/><span style="font-size: 8pt"><i>Suite Master</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">ID A2</td>
+														<td class="lines">C2N-SDC<span style="font-size: 9pt">
+                                            : "Net-Device ID A2"
+        	                    	        </span>
+															<br/><span style="font-size: 8pt"><i>Suite Master</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">ID A3</td>
+														<td class="lines">C2N-SDC<span style="font-size: 9pt">
+                                            : "Net-Device ID A3"
+        	                    	        </span>
+															<br/><span style="font-size: 8pt"><i>Living</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">ID A4</td>
+														<td class="lines">C2N-SDC<span style="font-size: 9pt">
+                                            : "Net-Device ID A4"
+        	                    	        </span>
+															<br/><span style="font-size: 8pt"><i>Suite Single</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</td>
+						</tr>
+						<tr class="r0">
+							<td class="lines">Slot 04</td>
+							<td class="lines">C2PAC2MENET-1<span style="font-size: 9pt">
+        	                    	            : Ethernet Address</span>
+							</td>
+							<td class="lines"></td>
+						</tr>
+						<tr>
+							<td colspan="4" bgcolor="white">
+								<div ID="subDevice">
+									<table border="1" bordercolor="black" bgcolor="white" width="100%">
+										<tr>
+											<td>
+												<table width="100%">
+													<tr class="header">
+														<td class="header" width="8%">Address</td>
+														<td class="header" width="40%">Name</td>
+														<td class="header" width="52%">Notes</td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">IP-ID 22</td>
+														<td class="lines">TPMC-4SMD<span style="font-size: 9pt">
+        	                    	            : 4" Color Touch Screen</span>
+															<br/><span style="font-size: 8pt"><i>Suite Master</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">IP-ID 23</td>
+														<td class="lines">TPMC-4SMD<span style="font-size: 9pt">
+        	                    	            : 4" Color Touch Screen</span>
+															<br/><span style="font-size: 8pt"><i>Suite Master</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">IP-ID 24</td>
+														<td class="lines">TPMC-4SMD<span style="font-size: 9pt">
+        	                    	            : 4" Color Touch Screen</span>
+															<br/><span style="font-size: 8pt"><i>Suite Single</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r0">
+														<td class="lines">IP-ID A0</td>
+														<td class="lines">Ethernet Intersystem Communications<span style="font-size: 9pt">
+                                            : "PACMIN"
+        	                    	        </span>
+															<br/><span style="font-size: 8pt"><i>Sala de Equipamentos</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+													<tr class="r1">
+														<td class="lines">IP-ID A1</td>
+														<td class="lines">Ethernet Intersystem Communications<span style="font-size: 9pt">
+                                            : "PACMEX"
+        	                    	        </span>
+															<br/><span style="font-size: 8pt"><i>Sala de Equipamentos</i></span>
+														</td>
+														<td class="lines"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</td>
+						</tr>
+						<tr class="r1">
+							<td class="lines">Slot 05</td>
+							<td class="lines">C2I-PAC2M-FRONTPANEL<span style="font-size: 9pt">
+        	                    	            : PAC2M Front Panel</span>
+							</td>
+							<td class="lines"></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+/*
+Programmer:Pierre
+Comments:Control ATV4/4K with Jailbreak
+*/
+
+#SYMBOL_NAME "ATV TCP-IP Jailbreak Module"
+
+
+#HELP_BEGIN
+   This is used in tandum with a jailbroken Apple TV 4/4K with a package "AirMagic". Use CheckRa1n to jailbreak from "checkra.1n".
+	UserInput is the text Field and InputEntry is to send it to the Apple TV.
+#HELP_END
+
+STRING_PARAMETER IPAddr$[16];
+
+DIGITAL_INPUT AUp,ADown,ALeft,ARight,AOk,AMenu,APlay,InputEntry;
+STRING_INPUT UserInput[150];
+STRING_OUTPUT TX$; 
+
+PUSH AUp{
+	makestring(TX$,"GET /remoteCommand=up\x0D\x0A HTTP/1.0\x0D\x0AHost: http://%s:3073\x0D\x0A\x0D\x0A", IPAddr$);		
+}
+PUSH ADown{
+	makestring(TX$,"GET /remoteCommand=down\x0D\x0A HTTP/1.0\x0D\x0AHost: http://%s:3073\x0D\x0A\x0D\x0A", IPAddr$);		
+}
+PUSH ALeft{
+	makestring(TX$,"GET /remoteCommand=left\x0D\x0A HTTP/1.0\x0D\x0AHost: http://%s:3073\x0D\x0A\x0D\x0A", IPAddr$);		
+}
+PUSH ARight{
+	makestring(TX$,"GET /remoteCommand=right\x0D\x0A HTTP/1.0\x0D\x0AHost: http://%s:3073\x0D\x0A\x0D\x0A", IPAddr$);		
+}
+PUSH AOk{
+	makestring(TX$,"GET /remoteCommand=select\x0D\x0A HTTP/1.0\x0D\x0AHost: http://%s:3073\x0D\x0A\x0D\x0A", IPAddr$);		
+}
+PUSH AMenu{
+	makestring(TX$,"GET /remoteCommand=menu\x0D\x0A HTTP/1.0\x0D\x0AHost: http://%s:3073\x0D\x0A\x0D\x0A", IPAddr$);		
+}
+PUSH APlay{
+	makestring(TX$,"GET /remoteCommand=play\x0D\x0A HTTP/1.0\x0D\x0AHost: http://%s:3073\x0D\x0A\x0D\x0A", IPAddr$);		
+}
+PUSH InputEntry{
+	makestring(TX$, "GET /enterText=%s\x0D\x0A HTTP/1.0\x0D\x0AHost: http://%s:3073\x0D\x0A\x0D\x0A", UserInput, IPAddr$);		
+}

@@ -1,0 +1,21 @@
+File Version	v3.05.00
+Modified Date	10/05/2022
+Modified Time	11:39:51
+
+RoomID	AreaID	RoomName
+-1	-2	Sala de Equipamentos
+1	5	Suite Master
+2	5	Suite Hospede
+3	5	Suite Single
+4	1	Hall
+5	1	Living
+6	1	Lavabo
+7	1	Office
+8	2	Cozinha
+9	2	Area de Servico
+10	2	Banheiro Servico
+11	5	Banheiro Suite Master
+12	5	Banheiro Suite Single
+13	5	Banheiro Suite Hospede
+14	1	Corredor
+

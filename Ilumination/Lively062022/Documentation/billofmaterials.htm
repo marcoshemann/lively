@@ -1,0 +1,760 @@
+<html xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:util="http://crestron.com/util" xmlns="http://www.w3.org/TR/REC-html40">
+	<head>
+		<title>Bill of Materials</title>
+		<style type="text/css"><!--
+                  body.default		{ font-family: Arial, Helvetica;
+                  font-size: 10pt }
+
+                  table.default		{ font-family: Arial, Helvetica;
+                  border-collapse: collapse;
+                  empty-cells: show;
+                  table-layout: fixed;
+                  font-size: 8.5pt}
+
+                  table.module		{ font-family: Arial, Helvetica;
+                  font-size: 8.5pt;
+                  border-collapse: collapse;
+                  empty-cells: show;
+                  table-layout: fixed }
+
+                  table.page		    { page-break-after: always }
+
+                  table.encl_view		{ border: 1pt solid black;
+                  background: #FFFFCC;
+                  font-size: 6pt;
+                  table-layout: fixed }
+
+                  table.header        { font-family:Arial, Helvetica;
+                  font-size: 10pt;
+                  border-collapse:collapse;
+                  width:100%;
+                  empty-cells: show;
+                  margin-bottom: 0.05in;
+                  cell-padding:0.01in }
+
+                  table.header_title        { font-family:Arial, Helvetica;
+                  font-size: 10pt;
+                  border-collapse:collapse;
+                  width:100%;
+                  empty-cells: show;
+                  margin-bottom: 0.01in;
+                  cell-padding:0.01in }
+                  
+                  tr.titleblock		{ font-weight: normal; font-size: 10pt;
+                  vertical-align: top }
+
+                  tr.pageseparate		{ background: rgb(214,214,214);
+                  vertical-align: center;
+                  height: 0.3in }
+
+                  tr.circuit		    { height: 0.25in }
+
+                  tr.encl_row		    { spacing: 5px }
+
+                  td.reporttitle		{ font-weight: bold; font-size: 12pt }
+
+                  td.titlebottom		{ border-bottom: 0.05in solid rgb(170,170,170) }
+
+                  td.titletop		    { border-top: 0.05in solid rgb(170,170,170) }
+
+                  td.pagetitle		{ font-size: 10pt;
+                  border-top: 0.01in solid black;
+                  border-bottom: 0.01in solid black }
+
+                  td.modulename		{ font-weight: bold; font-size: 9pt;
+                  padding-bottom: 2px }
+
+                  td.hot   			{ background: black;
+                  font-weight: bold;
+                  color: white;
+                  border: 1pt solid black }
+
+                  td.ckt_loc	    	{ padding-right: 7px;
+                  padding-left: 7px }
+
+
+                  td.ckt_red		    { background: rgb(214, 82, 87);
+                  color: black;
+                  border: 1pt solid black }
+
+                  td.ckt_blue		    { background: rgb(106, 162, 219);
+                  color: black;
+                  border: 1pt solid black }
+
+                  td.ckt_white		{ background: #FFFFFFF;
+                  color: black;
+                  border: 1pt solid black }
+
+                  td.feedseparate     { background: rgb(212,208,172);
+                  border: 1pt solid black }
+
+                  td.ckt_type		    {  }
+
+                  td.ckt_color		{  }
+
+                  td.bar			    { background: black;
+                  border: 1pt solid black }
+
+                  td.encl	 		    { padding-top: 20pt;
+                  padding-left: 10pt;
+                  width: 60px }
+
+                  td.encl_cur		    { background: rgb(214,214,214);
+                  border: 2pt solid black;
+                  font-weight: bold;
+                  width: 15px;
+                  height: 25px }
+
+                  td.encl_cell		{ background: white;
+                  border: 1pt solid black;
+                  width: 15px;
+                  height: 25px }
+
+                  img.arr_tail		{ width: 7;
+                  height: 1 }
+
+                  img.arr_front		{ width: 7;
+                  height: 1 }
+
+                  img.arr_head		{ width: 5;
+                  height: 5 }
+
+                  div.encl_name		{ font-size: 8pt;
+                  text-align: center }
+
+                  table.mod_data		{ border-collapse: collapse;
+                  empty-cells: show;
+                  table-layout: fixed;
+                  font-size: 9.5pt;
+                  page-break-after: always }
+
+                  td.mod_data_lt		{ text-align: left;
+                  padding: 0pt;
+                  border-right: 1.5pt solid black;
+                  height: 80px }
+
+                  td.mod_data_rt		{ text-align: right;
+                  padding: 0pt;
+                  border-left: 1.5pt solid black;
+                  height: 80px }
+
+                  td.fix_img_lt		{ background: rgb(250,250,250) }
+
+                  td.fix_img_rt		{ background: rgb(250,250,250) }
+
+                  td.mod_img		    { background: rgb(250,250,250) }
+
+                  td.no_inst		    { background: rgb(250,250,250);
+                  border: 1pt dashed gray;
+                  font-weight: bold; font-size: 8.5pt;
+                  height: 80px }
+
+                  td.ref_fix_lt		{ background: rgb(250,250,250);
+                  border-left: 1.5pt solid black;
+                  border-top: 1.5pt solid black;
+                  width: 80px }
+
+                  td.ref_fix_rt		{ background: rgb(250,250,250);
+                  border-right: 1.5pt solid black;
+                  border-top: 1.5pt solid black;
+                  width: 80px }
+
+                  td.ref_dev		    { background: rgb(250,250,250);
+                  border-top: 1.5pt solid black;
+                  width: 80px }
+
+                  td.ref_mod_data		{ width: 120px }
+
+                  img.mod_img		    { width: 84px }
+
+                  div.mod_name		{ background: black;
+                  color: white;
+                  border-bottom: 2pt solid black }
+
+                  img.device		    { border: 0pt }
+
+                  tr.header		    { font-weight: bold }
+
+                  tr.r0			    { background-color: rgb(232,232,232) }
+
+                  tr.r1			    { background-color: white }
+
+
+                  td.header		    { border-top: 0.5pt solid black;
+                  border-bottom: 2.0pt solid black;
+                  border-left: 0.5pt solid black;
+                  border-right: 0.5pt solid black;
+                  background-color:rgb(200,200,200);
+                  padding: 2pt
+                  }
+
+                  td.ld_cell          { border:0.5pt solid black;
+                  vertical-align:top;
+                  padding: 2pt }
+
+                  thead               { display: table-header-group }
+
+                  td.bom_req		    { background-color: rgb(232,232,232) }
+                  td.bom_cell         { border: 0.5pt solid black;
+                  vertical-align: top }
+                -->
+		</style>
+	</head>
+	<body class="default">
+		<script language="JavaScript">
+    					document.write("<center><b>This page is optimized for Microsoft Excel.</b></center>");
+    				</script>
+		<table class="default" style="table-layout: fixed">
+			<col style="width:0.25in"/>
+			<col style="width:1.10in"/>
+			<col style="width:2.50in"/>
+			<col style="width:0.77in"/>
+			<col style="width:0.62in"/>
+			<col style="width:0.62in"/>
+			<col style="width:0.62in"/>
+			<tr>
+				<td colspan="7" rowspan="2">
+					<img width="200" src="logogr.jpg"/>
+				</td>
+			</tr>
+			<tr/><tr/>
+			<tr class="titleblock">
+				<td class="titletop" width="50%" colspan="3"><b>Project: </b>Bill of Materials</td>
+				<td class="titletop" width="50%" colspan="4"></td>
+			</tr>
+			<tr class="titleblock">
+				<td colspan="3"><b>Project: </b>Lively010116</td>
+				<td colspan="4"><b>Dealer: </b>MHemann Tecnologia Ltda</td>
+			</tr>
+			<tr class="titleblock">
+				<td colspan="3"><b>Creator: </b>Crestron D3 Pro v3.03.002</td>
+			</tr>
+			<tr class="titleblock">
+				<td colspan="3"><b>Description: </b></td>
+			</tr>
+			<tr class="titleblock">
+				<td style="vertical-align: top" class="titlebottom" colspan="3"><b>Date: </b>12/04/2016</td>
+				<td style="vertical-align: top" class="titlebottom" colspan="4"><b> System Number: </b></td>
+			</tr>
+			<tr/>
+			<tr>
+				<td colspan="7">Note: Crestron product pricing information not available.  If you are an authorized Crestron Dealer, you may visit the Crestron website to download it.</td>
+			</tr>
+			<tr/>
+			<tr>
+				<td colspan="7" style="text-align:left; font-size:11pt"><b>Keypads</b></td>
+			</tr>
+			<tr class="header" style="height: 26pt" valign="bottom">
+				<td class="header"><b><center>Qty</center></b></td>
+				<td class="header"><b>Name</b></td>
+				<td class="header"><b>Description</b></td>
+				<td class="header"><b>Unit Price (Dealer)</b></td>
+				<td class="header"><b>Ext. Price (Dealer)</b></td>
+				<td class="header"><b>Unit Price (MSRP)</b></td>
+				<td class="header"><b>Ext. Price (MSRP)</b></td>
+			</tr>
+			<tr height="0">
+				<td/><td/><td/><td/><td><a name="start_1"/></td><td/><td><a name="start_1_m"/></td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Keypads_1"/>4</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">CNX-B12-W-T</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">12-Button Designer Keypad, White, Textured</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Keypads_1"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Keypads_1 * utpr_Keypads_1), &quot;N/A&quot;, qty_Keypads_1 * utpr_Keypads_1)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Keypads_1_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Keypads_1 * utpr_Keypads_1_m), &quot;N/A&quot;, qty_Keypads_1 * utpr_Keypads_1_m)">NaN</td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Keypads_2"/>2</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">CNX-B6W</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">6 button keypad, backlit, white</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Keypads_2"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Keypads_2 * utpr_Keypads_2), &quot;N/A&quot;, qty_Keypads_2 * utpr_Keypads_2)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Keypads_2_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Keypads_2 * utpr_Keypads_2_m), &quot;N/A&quot;, qty_Keypads_2 * utpr_Keypads_2_m)">NaN</td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Keypads_3"/>5</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">CNX-B4-W-T</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">4-Button Designer Keypad, White, Textured</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Keypads_3"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Keypads_3 * utpr_Keypads_3), &quot;N/A&quot;, qty_Keypads_3 * utpr_Keypads_3)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Keypads_3_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Keypads_3 * utpr_Keypads_3_m), &quot;N/A&quot;, qty_Keypads_3 * utpr_Keypads_3_m)">NaN</td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Keypads_4"/>1</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">CNX-B4W</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">4 button keypad, backlit, white</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Keypads_4"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Keypads_4 * utpr_Keypads_4), &quot;N/A&quot;, qty_Keypads_4 * utpr_Keypads_4)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Keypads_4_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Keypads_4 * utpr_Keypads_4_m), &quot;N/A&quot;, qty_Keypads_4 * utpr_Keypads_4_m)">NaN</td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Keypads_5"/>1</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">CNX-B8W</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">8 button keypad, backlit, white</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Keypads_5"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Keypads_5 * utpr_Keypads_5), &quot;N/A&quot;, qty_Keypads_5 * utpr_Keypads_5)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Keypads_5_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Keypads_5 * utpr_Keypads_5_m), &quot;N/A&quot;, qty_Keypads_5 * utpr_Keypads_5_m)">NaN</td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Keypads_6"/>17</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">B-G1-FPW</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">1-Gang Plastic White Faceplate Covers, Plastic White</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Keypads_6"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Keypads_6 * utpr_Keypads_6), &quot;N/A&quot;, qty_Keypads_6 * utpr_Keypads_6)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Keypads_6_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Keypads_6 * utpr_Keypads_6_m), &quot;N/A&quot;, qty_Keypads_6 * utpr_Keypads_6_m)">NaN</td>
+			</tr>
+			<tr height="0" style="display:none">
+				<td/><td/><td/><td/><td><a name="end_1"/></td><td/><td><a name="end_1_m"/></td>
+			</tr>
+			<tr>
+				<td/>
+				<td/>
+				<td/>
+				<td style="text-align: right"><b>Subtotal:*</b></td>
+				<td style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(start_1:end_1)">
+					<a name="sum_1"/>{$BOMNumFormat}
+                </td>
+				<td/>
+				<td style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(start_1_m:end_1_m)">
+					<a name="sum_1_m"/>{$BOMNumFormat}
+                </td>
+			</tr>
+			<tr/>
+			<br/>
+			<tr>
+				<td colspan="7" style="text-align:left; font-size:11pt"><b>Lighting Modules</b></td>
+			</tr>
+			<tr class="header" style="height: 26pt" valign="bottom">
+				<td class="header"><b><center>Qty</center></b></td>
+				<td class="header"><b>Name</b></td>
+				<td class="header"><b>Description</b></td>
+				<td class="header"><b>Unit Price (Dealer)</b></td>
+				<td class="header"><b>Ext. Price (Dealer)</b></td>
+				<td class="header"><b>Unit Price (MSRP)</b></td>
+				<td class="header"><b>Ext. Price (MSRP)</b></td>
+			</tr>
+			<tr height="0">
+				<td/><td/><td/><td/><td><a name="start_2"/></td><td/><td><a name="start_2_m"/></td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Lighting_Modules_1"/>3</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">CLX-1DIM8</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">1-20A Feed, 8 Controlled Circuits Dimmer (120VAC)</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Lighting_Modules_1"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Lighting_Modules_1 * utpr_Lighting_Modules_1), &quot;N/A&quot;, qty_Lighting_Modules_1 * utpr_Lighting_Modules_1)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Lighting_Modules_1_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Lighting_Modules_1 * utpr_Lighting_Modules_1_m), &quot;N/A&quot;, qty_Lighting_Modules_1 * utpr_Lighting_Modules_1_m)">NaN</td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Lighting_Modules_2"/>6</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">DIN-8SW8</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">8-feed, 8-channel high-voltage switch, DIN-rail mount</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Lighting_Modules_2"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Lighting_Modules_2 * utpr_Lighting_Modules_2), &quot;N/A&quot;, qty_Lighting_Modules_2 * utpr_Lighting_Modules_2)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Lighting_Modules_2_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Lighting_Modules_2 * utpr_Lighting_Modules_2_m), &quot;N/A&quot;, qty_Lighting_Modules_2 * utpr_Lighting_Modules_2_m)">NaN</td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Lighting_Modules_3"/>2</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">DIN-IO8</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">8-channel Versiport module, DIN-rail mount</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Lighting_Modules_3"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Lighting_Modules_3 * utpr_Lighting_Modules_3), &quot;N/A&quot;, qty_Lighting_Modules_3 * utpr_Lighting_Modules_3)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Lighting_Modules_3_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Lighting_Modules_3 * utpr_Lighting_Modules_3_m), &quot;N/A&quot;, qty_Lighting_Modules_3 * utpr_Lighting_Modules_3_m)">NaN</td>
+			</tr>
+			<tr height="0" style="display:none">
+				<td/><td/><td/><td/><td><a name="end_2"/></td><td/><td><a name="end_2_m"/></td>
+			</tr>
+			<tr>
+				<td/>
+				<td/>
+				<td/>
+				<td style="text-align: right"><b>Subtotal:*</b></td>
+				<td style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(start_2:end_2)">
+					<a name="sum_2"/>{$BOMNumFormat}
+                </td>
+				<td/>
+				<td style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(start_2_m:end_2_m)">
+					<a name="sum_2_m"/>{$BOMNumFormat}
+                </td>
+			</tr>
+			<tr/>
+			<br/>
+			<tr>
+				<td colspan="7" style="text-align:left; font-size:11pt"><b>Lighting Terminal Blocks</b></td>
+			</tr>
+			<tr class="header" style="height: 26pt" valign="bottom">
+				<td class="header"><b><center>Qty</center></b></td>
+				<td class="header"><b>Name</b></td>
+				<td class="header"><b>Description</b></td>
+				<td class="header"><b>Unit Price (Dealer)</b></td>
+				<td class="header"><b>Ext. Price (Dealer)</b></td>
+				<td class="header"><b>Unit Price (MSRP)</b></td>
+				<td class="header"><b>Ext. Price (MSRP)</b></td>
+			</tr>
+			<tr height="0">
+				<td/><td/><td/><td/><td><a name="start_3"/></td><td/><td><a name="start_3_m"/></td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Lighting_Terminal_Blocks_1"/>3</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">CLT-1DIM8</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">Terminal block for CLX-1DIM8</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Lighting_Terminal_Blocks_1"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Lighting_Terminal_Blocks_1 * utpr_Lighting_Terminal_Blocks_1), &quot;N/A&quot;, qty_Lighting_Terminal_Blocks_1 * utpr_Lighting_Terminal_Blocks_1)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Lighting_Terminal_Blocks_1_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Lighting_Terminal_Blocks_1 * utpr_Lighting_Terminal_Blocks_1_m), &quot;N/A&quot;, qty_Lighting_Terminal_Blocks_1 * utpr_Lighting_Terminal_Blocks_1_m)">NaN</td>
+			</tr>
+			<tr height="0" style="display:none">
+				<td/><td/><td/><td/><td><a name="end_3"/></td><td/><td><a name="end_3_m"/></td>
+			</tr>
+			<tr>
+				<td/>
+				<td/>
+				<td/>
+				<td style="text-align: right"><b>Subtotal:*</b></td>
+				<td style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(start_3:end_3)">
+					<a name="sum_3"/>{$BOMNumFormat}
+                </td>
+				<td/>
+				<td style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(start_3_m:end_3_m)">
+					<a name="sum_3_m"/>{$BOMNumFormat}
+                </td>
+			</tr>
+			<tr/>
+			<br/>
+			<tr>
+				<td colspan="7" style="text-align:left; font-size:11pt"><b>Cresnet Modules</b></td>
+			</tr>
+			<tr class="header" style="height: 26pt" valign="bottom">
+				<td class="header"><b><center>Qty</center></b></td>
+				<td class="header"><b>Name</b></td>
+				<td class="header"><b>Description</b></td>
+				<td class="header"><b>Unit Price (Dealer)</b></td>
+				<td class="header"><b>Ext. Price (Dealer)</b></td>
+				<td class="header"><b>Unit Price (MSRP)</b></td>
+				<td class="header"><b>Ext. Price (MSRP)</b></td>
+			</tr>
+			<tr height="0">
+				<td/><td/><td/><td/><td><a name="start_4"/></td><td/><td><a name="start_4_m"/></td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Cresnet_Modules_1"/>5</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">C2N-SDC</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">Shade/Drape Controller, 120VAC, 2-Channel</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Cresnet_Modules_1"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Cresnet_Modules_1 * utpr_Cresnet_Modules_1), &quot;N/A&quot;, qty_Cresnet_Modules_1 * utpr_Cresnet_Modules_1)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Cresnet_Modules_1_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Cresnet_Modules_1 * utpr_Cresnet_Modules_1_m), &quot;N/A&quot;, qty_Cresnet_Modules_1 * utpr_Cresnet_Modules_1_m)">NaN</td>
+			</tr>
+			<tr height="0" style="display:none">
+				<td/><td/><td/><td/><td><a name="end_4"/></td><td/><td><a name="end_4_m"/></td>
+			</tr>
+			<tr>
+				<td/>
+				<td/>
+				<td/>
+				<td style="text-align: right"><b>Subtotal:*</b></td>
+				<td style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(start_4:end_4)">
+					<a name="sum_4"/>{$BOMNumFormat}
+                </td>
+				<td/>
+				<td style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(start_4_m:end_4_m)">
+					<a name="sum_4_m"/>{$BOMNumFormat}
+                </td>
+			</tr>
+			<tr/>
+			<br/>
+			<tr>
+				<td colspan="7" style="text-align:left; font-size:11pt"><b>Engraver-Specified Accessories</b></td>
+			</tr>
+			<tr class="header" style="height: 26pt" valign="bottom">
+				<td class="header"><b><center>Qty</center></b></td>
+				<td class="header"><b>Name</b></td>
+				<td class="header"><b>Description</b></td>
+				<td class="header"><b>Unit Price (Dealer)</b></td>
+				<td class="header"><b>Ext. Price (Dealer)</b></td>
+				<td class="header"><b>Unit Price (MSRP)</b></td>
+				<td class="header"><b>Ext. Price (MSRP)</b></td>
+			</tr>
+			<tr height="0">
+				<td/><td/><td/><td/><td><a name="start_5"/></td><td/><td><a name="start_5_m"/></td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Engraver_Specified_Accessories_1"/>12</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">B6-BTNW</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">CNX-B6 White Buttons</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Engraver_Specified_Accessories_1"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Engraver_Specified_Accessories_1 * utpr_Engraver_Specified_Accessories_1), &quot;N/A&quot;, qty_Engraver_Specified_Accessories_1 * utpr_Engraver_Specified_Accessories_1)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Engraver_Specified_Accessories_1_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Engraver_Specified_Accessories_1 * utpr_Engraver_Specified_Accessories_1_m), &quot;N/A&quot;, qty_Engraver_Specified_Accessories_1 * utpr_Engraver_Specified_Accessories_1_m)">NaN</td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Engraver_Specified_Accessories_2"/>4</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">B4-BTNW</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">CNX-B4 White Buttons</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Engraver_Specified_Accessories_2"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Engraver_Specified_Accessories_2 * utpr_Engraver_Specified_Accessories_2), &quot;N/A&quot;, qty_Engraver_Specified_Accessories_2 * utpr_Engraver_Specified_Accessories_2)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Engraver_Specified_Accessories_2_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Engraver_Specified_Accessories_2 * utpr_Engraver_Specified_Accessories_2_m), &quot;N/A&quot;, qty_Engraver_Specified_Accessories_2 * utpr_Engraver_Specified_Accessories_2_m)">NaN</td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Engraver_Specified_Accessories_3"/>8</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">B8-BTNW</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">CNX-B8 White Buttons</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Engraver_Specified_Accessories_3"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Engraver_Specified_Accessories_3 * utpr_Engraver_Specified_Accessories_3), &quot;N/A&quot;, qty_Engraver_Specified_Accessories_3 * utpr_Engraver_Specified_Accessories_3)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Engraver_Specified_Accessories_3_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Engraver_Specified_Accessories_3 * utpr_Engraver_Specified_Accessories_3_m), &quot;N/A&quot;, qty_Engraver_Specified_Accessories_3 * utpr_Engraver_Specified_Accessories_3_m)">NaN</td>
+			</tr>
+			<tr height="0" style="display:none">
+				<td/><td/><td/><td/><td><a name="end_5"/></td><td/><td><a name="end_5_m"/></td>
+			</tr>
+			<tr>
+				<td/>
+				<td/>
+				<td/>
+				<td style="text-align: right"><b>Subtotal:*</b></td>
+				<td style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(start_5:end_5)">
+					<a name="sum_5"/>{$BOMNumFormat}
+                </td>
+				<td/>
+				<td style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(start_5_m:end_5_m)">
+					<a name="sum_5_m"/>{$BOMNumFormat}
+                </td>
+			</tr>
+			<tr/>
+			<br/>
+			<tr>
+				<td colspan="7" style="text-align:left; font-size:11pt"><b>Touch Screens</b></td>
+			</tr>
+			<tr class="header" style="height: 26pt" valign="bottom">
+				<td class="header"><b><center>Qty</center></b></td>
+				<td class="header"><b>Name</b></td>
+				<td class="header"><b>Description</b></td>
+				<td class="header"><b>Unit Price (Dealer)</b></td>
+				<td class="header"><b>Ext. Price (Dealer)</b></td>
+				<td class="header"><b>Unit Price (MSRP)</b></td>
+				<td class="header"><b>Ext. Price (MSRP)</b></td>
+			</tr>
+			<tr height="0">
+				<td/><td/><td/><td/><td><a name="start_6"/></td><td/><td><a name="start_6_m"/></td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Touch_Screens_1"/>3</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">TPMC-4SMD</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">Isys I/O 4.3" Wall Mount Touch screen Media Center</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Touch_Screens_1"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Touch_Screens_1 * utpr_Touch_Screens_1), &quot;N/A&quot;, qty_Touch_Screens_1 * utpr_Touch_Screens_1)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Touch_Screens_1_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Touch_Screens_1 * utpr_Touch_Screens_1_m), &quot;N/A&quot;, qty_Touch_Screens_1 * utpr_Touch_Screens_1_m)">NaN</td>
+			</tr>
+			<tr height="0" style="display:none">
+				<td/><td/><td/><td/><td><a name="end_6"/></td><td/><td><a name="end_6_m"/></td>
+			</tr>
+			<tr>
+				<td/>
+				<td/>
+				<td/>
+				<td style="text-align: right"><b>Subtotal:*</b></td>
+				<td style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(start_6:end_6)">
+					<a name="sum_6"/>{$BOMNumFormat}
+                </td>
+				<td/>
+				<td style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(start_6_m:end_6_m)">
+					<a name="sum_6_m"/>{$BOMNumFormat}
+                </td>
+			</tr>
+			<tr/>
+			<br/>
+			<tr>
+				<td colspan="7" style="text-align:left; font-size:11pt"><b>Control Processors</b></td>
+			</tr>
+			<tr class="header" style="height: 26pt" valign="bottom">
+				<td class="header"><b><center>Qty</center></b></td>
+				<td class="header"><b>Name</b></td>
+				<td class="header"><b>Description</b></td>
+				<td class="header"><b>Unit Price (Dealer)</b></td>
+				<td class="header"><b>Ext. Price (Dealer)</b></td>
+				<td class="header"><b>Unit Price (MSRP)</b></td>
+				<td class="header"><b>Ext. Price (MSRP)</b></td>
+			</tr>
+			<tr height="0">
+				<td/><td/><td/><td/><td><a name="start_7"/></td><td/><td><a name="start_7_m"/></td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Control_Processors_1"/>1</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">PAC2M</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">Professional Automation Control System</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Control_Processors_1"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Control_Processors_1 * utpr_Control_Processors_1), &quot;N/A&quot;, qty_Control_Processors_1 * utpr_Control_Processors_1)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Control_Processors_1_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Control_Processors_1 * utpr_Control_Processors_1_m), &quot;N/A&quot;, qty_Control_Processors_1 * utpr_Control_Processors_1_m)">NaN</td>
+			</tr>
+			<tr height="0" style="display:none">
+				<td/><td/><td/><td/><td><a name="end_7"/></td><td/><td><a name="end_7_m"/></td>
+			</tr>
+			<tr>
+				<td/>
+				<td/>
+				<td/>
+				<td style="text-align: right"><b>Subtotal:*</b></td>
+				<td style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(start_7:end_7)">
+					<a name="sum_7"/>{$BOMNumFormat}
+                </td>
+				<td/>
+				<td style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(start_7_m:end_7_m)">
+					<a name="sum_7_m"/>{$BOMNumFormat}
+                </td>
+			</tr>
+			<tr/>
+			<br/>
+			<tr>
+				<td colspan="7" style="text-align:left; font-size:11pt"><b>Automation Enclosure Accessories</b></td>
+			</tr>
+			<tr class="header" style="height: 26pt" valign="bottom">
+				<td class="header"><b><center>Qty</center></b></td>
+				<td class="header"><b>Name</b></td>
+				<td class="header"><b>Description</b></td>
+				<td class="header"><b>Unit Price (Dealer)</b></td>
+				<td class="header"><b>Ext. Price (Dealer)</b></td>
+				<td class="header"><b>Unit Price (MSRP)</b></td>
+				<td class="header"><b>Ext. Price (MSRP)</b></td>
+			</tr>
+			<tr height="0">
+				<td/><td/><td/><td/><td><a name="start_8"/></td><td/><td><a name="start_8_m"/></td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Automation_Enclosure_Accessories_1"/>1</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">CAEN-BLOCK</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">Cresnet Terminal Block for Automation Enclosures</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Automation_Enclosure_Accessories_1"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Automation_Enclosure_Accessories_1 * utpr_Automation_Enclosure_Accessories_1), &quot;N/A&quot;, qty_Automation_Enclosure_Accessories_1 * utpr_Automation_Enclosure_Accessories_1)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Automation_Enclosure_Accessories_1_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Automation_Enclosure_Accessories_1 * utpr_Automation_Enclosure_Accessories_1_m), &quot;N/A&quot;, qty_Automation_Enclosure_Accessories_1 * utpr_Automation_Enclosure_Accessories_1_m)">NaN</td>
+			</tr>
+			<tr height="0" style="display:none">
+				<td/><td/><td/><td/><td><a name="end_8"/></td><td/><td><a name="end_8_m"/></td>
+			</tr>
+			<tr>
+				<td/>
+				<td/>
+				<td/>
+				<td style="text-align: right"><b>Subtotal:*</b></td>
+				<td style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(start_8:end_8)">
+					<a name="sum_8"/>{$BOMNumFormat}
+                </td>
+				<td/>
+				<td style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(start_8_m:end_8_m)">
+					<a name="sum_8_m"/>{$BOMNumFormat}
+                </td>
+			</tr>
+			<tr/>
+			<br/>
+			<tr>
+				<td colspan="7" style="text-align:left; font-size:11pt"><b>Automation Enclosures</b></td>
+			</tr>
+			<tr class="header" style="height: 26pt" valign="bottom">
+				<td class="header"><b><center>Qty</center></b></td>
+				<td class="header"><b>Name</b></td>
+				<td class="header"><b>Description</b></td>
+				<td class="header"><b>Unit Price (Dealer)</b></td>
+				<td class="header"><b>Ext. Price (Dealer)</b></td>
+				<td class="header"><b>Unit Price (MSRP)</b></td>
+				<td class="header"><b>Ext. Price (MSRP)</b></td>
+			</tr>
+			<tr height="0">
+				<td/><td/><td/><td/><td><a name="start_9"/></td><td/><td><a name="start_9_m"/></td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Automation_Enclosures_1"/>1</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">CAEN-7X2</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">Automation Enclosure, 7 modules high x 2 modules wide</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Automation_Enclosures_1"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Automation_Enclosures_1 * utpr_Automation_Enclosures_1), &quot;N/A&quot;, qty_Automation_Enclosures_1 * utpr_Automation_Enclosures_1)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Automation_Enclosures_1_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Automation_Enclosures_1 * utpr_Automation_Enclosures_1_m), &quot;N/A&quot;, qty_Automation_Enclosures_1 * utpr_Automation_Enclosures_1_m)">NaN</td>
+			</tr>
+			<tr>
+				<td class="bom_cell" style="mso-protection: unlocked visible"><center><a name="qty_Automation_Enclosures_2"/>1</center></td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">DIN-EN-6x18</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible">Enclosure for DIN Rail Devices, 6 DIN Rails, 18 Units Wide</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Automation_Enclosures_2"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Automation_Enclosures_2 * utpr_Automation_Enclosures_2), &quot;N/A&quot;, qty_Automation_Enclosures_2 * utpr_Automation_Enclosures_2)">NaN</td>
+				<td class="bom_cell" style="mso-protection: unlocked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right"><a name="utpr_Automation_Enclosures_2_m"/>--</td>
+				<td class="bom_cell" style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=IF(ISERROR(qty_Automation_Enclosures_2 * utpr_Automation_Enclosures_2_m), &quot;N/A&quot;, qty_Automation_Enclosures_2 * utpr_Automation_Enclosures_2_m)">NaN</td>
+			</tr>
+			<tr height="0" style="display:none">
+				<td/><td/><td/><td/><td><a name="end_9"/></td><td/><td><a name="end_9_m"/></td>
+			</tr>
+			<tr>
+				<td/>
+				<td/>
+				<td/>
+				<td style="text-align: right"><b>Subtotal:*</b></td>
+				<td style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(start_9:end_9)">
+					<a name="sum_9"/>{$BOMNumFormat}
+                </td>
+				<td/>
+				<td style="mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(start_9_m:end_9_m)">
+					<a name="sum_9_m"/>{$BOMNumFormat}
+                </td>
+			</tr>
+			<tr/>
+			<br/>
+			<tr/>
+			<tr>
+				<td/>
+				<td/>
+				<td/>
+				<td style="mso-ignore:colspan; text-align: right">
+					<b>Grand Total:* </b>
+				</td>
+				<td style="vertical-align:top; mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(sum_1, sum_2, sum_3, sum_4, sum_5, sum_6, sum_7, sum_8, sum_9)">
+					<a name="total_dlr"/>{$BOMNumFormat}
+              </td>
+				<td/>
+				<td style="vertical-align:top; mso-protection: locked visible; mso-number-format:\0022$\0022\#\,\#\#0" align="right" x:fmla="=SUM(sum_1_m, sum_2_m, sum_3_m, sum_4_m, sum_5_m, sum_6_m, sum_7_m, sum_8_m, sum_9_m)">
+					<a name="total_list"/>{$BOMNumFormat}
+              </td>
+			</tr>
+			<tr/>
+			<tr>
+				<td/>
+				<td style="mso-protection: locked visible" colspan="5">
+					<b><u>NOTES:</u></b><br/><br/>
+                This bill-of-materials is provided to assist you in
+                quoting or ordering your system, and may not include all
+                equipment needed by your system.  YOU ARE RESPONSIBLE
+                FOR VERIFYING THAT ALL EQUIPMENT NEEDED IS INCLUDED
+                prior to submitting your order to Crestron.  For further
+                review of your order for completeness, please contact
+                Crestron Technical Sales.<br/><br/>
+				</td>
+			</tr>
+			<tr/>
+			<tr>
+				<td/>
+				<td colspan="5"/>
+			</tr>
+			<tr/>
+			<tr>
+				<td align="right">*</td>
+				<td colspan="5">
+                Subtotal and Grand Total values will not appear unless document has been
+                opened in Microsoft Excel.
+              </td>
+			</tr>
+		</table>
+		<script language="JavaScript">
+    			document.write("<center><b>This page is optimized for Microsoft Excel.</b></center>");
+    		</script>
+	</body>
+</html>

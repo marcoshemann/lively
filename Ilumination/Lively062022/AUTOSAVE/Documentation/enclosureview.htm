@@ -1,0 +1,668 @@
+<html>
+	<head>
+		<title>Modules and Enclosures</title>
+		<style type="text/css">
+			<!--
+						body.default		{ font-family: Arial, Helvetica;
+						font-size: 10pt }
+
+						table.default		{ font-family: Arial, Helvetica;
+						border-collapse: collapse;
+						empty-cells: show;
+						table-layout: fixed;
+						font-size: 9pt}
+
+						table.module		{ font-family: Arial, Helvetica;
+						font-size: 8.5pt;
+						border-collapse: collapse;
+						empty-cells: show;
+						table-layout: fixed }
+
+						table.page		    { page-break-after: always }
+
+						table.encl_view		{ border: 1pt solid black;
+						background: #FFFFCC;
+						font-size: 6pt;
+						table-layout: fixed }
+
+						table.header        { font-family:Arial, Helvetica;
+						font-size: 10pt;
+						border-collapse:collapse;
+						width:100%;
+						empty-cells: show;
+						margin-bottom: 0.05in;
+						cell-padding:0.01in }
+
+						table.header_title        { font-family:Arial, Helvetica;
+						font-size: 10pt;
+						border-collapse:collapse;
+						width:100%;
+						empty-cells: show;
+						margin-bottom: 0.01in;
+						cell-padding:0.01in }
+
+						tr.titleblock		{ font-weight: normal; font-size: 10pt;
+						vertical-align: top }
+
+						tr.pageseparate		{ background: rgb(214,214,214);
+						vertical-align: center;
+						height: 0.3in }
+
+						tr.circuit		    { height: 0.25in }
+
+						tr.encl_row		    { spacing: 5px }
+
+						td.reporttitle		{ font-weight: bold; font-size: 12pt }
+
+						td.titlebottom		{ border-bottom: 0.05in solid rgb(170,170,170) }
+
+						td.titletop		    { border-top: 0.05in solid rgb(170,170,170) }
+
+						td.pagetitle		{ font-size: 10pt;
+						border-top: 0.01in solid black;
+						border-bottom: 0.01in solid black }
+						td.modulename		{ font-weight: bold; font-size: 9pt;
+						padding-bottom: 2px }
+
+						td.hot   			{ background: black;
+						font-weight: bold;
+						color: white;
+						border: 1pt solid black }
+
+						td.ckt_loc	    	{ padding-right: 7px;
+						padding-left: 7px }
+
+
+						td.ckt_red		    { background: rgb(214, 82, 87);
+						color: black;
+						border: 1pt solid black }
+
+						td.ckt_blue		    { background: rgb(106, 162, 219);
+						color: black;
+						border: 1pt solid black }
+
+						td.ckt_white		{ background: #FFFFFFF;
+						color: black;
+						border: 1pt solid black }
+
+						td.feedseparate     { background: rgb(212,208,172);
+						border: 1pt solid black }
+
+						td.ckt_type		    {  }
+
+						td.ckt_color		{  }
+
+						td.bar			    { background: black;
+						border: 1pt solid black }
+
+						td.encl	 		    { padding-top: 20pt;
+						padding-left: 10pt;
+						width: 60px }
+
+						td.encl_cur		    { background: rgb(214,214,214);
+						border: 2pt solid black;
+						font-weight: bold;
+						width: 15px;
+						height: 25px }
+
+						td.encl_cell		{ background: white;
+						border: 1pt solid black;
+						width: 15px;
+						height: 25px }
+
+						img.arr_tail		{ width: 7;
+						height: 1 }
+
+						img.arr_front		{ width: 7;
+						height: 1 }
+
+						img.arr_head		{ width: 5;
+						height: 5 }
+
+						div.encl_name		{ font-size: 8pt;
+						text-align: center }
+
+						table.mod_data		{ border-collapse: collapse;
+						empty-cells: show;
+						table-layout: auto;
+						font-size: 9.5pt;
+						page-break-after: always }
+
+						td.mod_data_lt		{ text-align: left;
+						padding: 0pt;
+						border-right: 1.5pt solid black;
+						width: 175px }
+
+						td.mod_data_rt		{ text-align: right;
+						padding: 0pt;
+						border-left: 1.5pt solid black;
+						width: 175px }
+
+						td.fix_img_lt		{ background: rgb(250,250,250) }
+
+						td.fix_img_rt		{ background: rgb(250,250,250) }
+
+						td.mod_img		    { background: rgb(250,250,250) }
+
+						td.no_inst		    { background: rgb(250,250,250);
+						border: 1pt dashed gray;
+						font-weight: bold; font-size: 8.5pt;
+						height: 80px }
+
+						td.ref_fix_lt		{ background: rgb(250,250,250);
+						border-left: 1.5pt solid black;
+						border-top: 1.5pt solid black;
+						width: 80px }
+
+						td.ref_fix_rt		{ background: rgb(250,250,250);
+						border-right: 1.5pt solid black;
+						border-top: 1.5pt solid black;
+						width: 80px }
+
+						td.ref_dev		    { background: rgb(250,250,250);
+						border-top: 1.5pt solid black;
+						width: 80px }
+
+						td.ref_mod_data		{ width: 120px }
+
+						img.mod_img		    { width: 84px }
+
+						div.mod_name		{ background: black;
+						color: white;
+						border-bottom: 2pt solid black }
+
+						img.device		    { border: 0pt }
+
+						tr.header		    { font-weight: bold }
+
+						tr.r0			    { background-color: rgb(232,232,232) }
+
+						tr.r1			    { background-color: white }
+
+
+						td.header		    { border-top: 0.5pt solid black;
+						border-bottom: 2.0pt solid black;
+						border-left: 0.5pt solid black;
+						border-right: 0.5pt solid black;
+						background-color:rgb(200,200,200);
+						padding: 2pt
+						}
+
+						td.ld_cell          { border:0.5pt solid black;
+						vertical-align:top;
+						padding: 2pt }
+
+						thead               { display: table-header-group }
+
+						td.bom_req		    { background-color: rgb(232,232,232) }
+						td.bom_cell         { border: 0.5pt solid black;
+						vertical-align: top }
+						td.not_support    { background-color: rgb(250,250,250);
+						font-size: 10pt;
+						text-align: left }
+
+						td.din_rail_cell		{ background: white;
+						border: 1pt solid grey;
+						}
+						table.table_din_data	{ border-collapse: collapse;
+						empty-cells: show;
+						table-layout: auto;
+						width = auto;
+						font-size: 9.5pt;
+						page-break-after: always
+						}
+						table.din_mod_data		{ border-collapse: collapse;
+						width = auto;
+						font-size: 9.5pt;
+						}
+						td.din_mod_name		{ background: white;
+						color: black;
+						font-weight: bold;
+						}
+						table.table_din_rail		{ border: 1pt solid grey;
+						background: #aaaaaa;
+						width = 220;
+						}
+					-->
+		</style>
+	</head>
+	<body class="default">
+		<table class="header" width="100%">
+			<tr>
+				<td colspan="25" rowspan="3">
+					<img width="200" src="logogr.jpg"/>
+				</td>
+			</tr>
+			<tr/>
+			<tr/>
+			<tr class="titleblock">
+				<td class="titletop" width="100%" colspan="25">
+					<table class="header_title">
+						<tr>
+							<td align="right" width="8%">
+								<b>Report: </b>
+							</td>
+							<td width="92%">Modules and Enclosures</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr class="titleblock">
+				<td width="8%" align="right">
+					<b>Project: </b>
+				</td>
+				<td width="32%">Lively010116</td>
+				<td width="13%" align="right">
+					<b>Dealer: </b>
+				</td>
+				<td width="47%">MHemann Tecnologia Ltda</td>
+			</tr>
+			<tr class="titleblock">
+				<td align="right">
+					<b>Creator: </b>
+				</td>
+				<td>
+                    Crestron D3 Pro v3.03.002</td>
+				<td align="right">
+					<b>Description: </b>
+				</td>
+				<td></td>
+			</tr>
+			<tr class="titleblock">
+				<td class="titlebottom" align="right">
+					<b>Date: </b>
+				</td>
+				<td class="titlebottom">12/04/2016</td>
+				<td class="titlebottom" align="right">
+					<b>System Number:</b>
+				</td>
+				<td class="titlebottom"></td>
+			</tr>
+		</table>
+		<br/>
+		<br/>
+		<table class="default" width="100%">
+			<tr class="pageseparate">
+				<td class="pagetitle">
+					<b>Equipamentos/Sala de Equipamentos/EN1</b>
+				</td>
+			</tr>
+		</table>
+		<br/>
+		<table class="mod_data" align="center" cellpadding="0" cellspacing="0">
+			<tr height="20">
+				<td class="ref_mod_data"/>
+				<td class="ref_fix_lt"/>
+				<td class="ref_dev" style=""/>
+				<td class="ref_dev"/>
+				<td class="ref_fix_rt"/>
+				<td class="ref_mod_data"/>
+			</tr>
+			<tr>
+				<td class="mod_data_lt" valign="top"/>
+				<td class="fix_img_lt"/>
+				<td align="right" valign="middle" class="mod_img" style="" colspan="1" rowspan="1">
+					<table height="84" width="100%">
+						<tr><td style="text-align: center; background: white; border: .5pt solid black; font-weight: bold; font-size: 8.5pt;">
+						Slot 13<br/>
+						Empty
+						</td></tr>
+					</table>
+				</td>
+				<td align="left" valign="middle" class="mod_img" rowspan="1">
+					<table height="84" width="100%">
+						<tr><td style="text-align: center; background: white; border: .5pt solid black; font-weight: bold; font-size: 8.5pt">
+								Slot 14<br/>
+								Empty
+								</td></tr>
+					</table>
+				</td>
+				<td class="fix_img_rt"/>
+				<td class="mod_data_rt" valign="top" width="185"/>
+			</tr>
+			<tr>
+				<td class="mod_data_lt" valign="top"/>
+				<td class="fix_img_lt"/>
+				<td align="right" valign="middle" class="mod_img" style="" colspan="1" rowspan="1">
+					<table height="84" width="100%">
+						<tr><td style="text-align: center; background: white; border: .5pt solid black; font-weight: bold; font-size: 8.5pt;">
+						Slot 11<br/>
+						Empty
+						</td></tr>
+					</table>
+				</td>
+				<td align="left" valign="middle" class="mod_img" rowspan="1">
+					<table height="84" width="100%">
+						<tr><td style="text-align: center; background: white; border: .5pt solid black; font-weight: bold; font-size: 8.5pt">
+								Slot 12<br/>
+								Empty
+								</td></tr>
+					</table>
+				</td>
+				<td class="fix_img_rt"/>
+				<td class="mod_data_rt" valign="top" width="185"/>
+			</tr>
+			<tr>
+				<td class="mod_data_lt" valign="top"/>
+				<td class="fix_img_lt"/>
+				<td align="right" valign="middle" class="mod_img" style="" colspan="1" rowspan="1">
+					<table height="84" width="100%">
+						<tr><td style="text-align: center; background: white; border: .5pt solid black; font-weight: bold; font-size: 8.5pt;">
+						Slot 9<br/>
+						Empty
+						</td></tr>
+					</table>
+				</td>
+				<td align="left" valign="middle" class="mod_img" rowspan="1">
+					<table height="84" width="100%">
+						<tr><td style="text-align: center; background: white; border: .5pt solid black; font-weight: bold; font-size: 8.5pt">
+								Slot 10<br/>
+								Empty
+								</td></tr>
+					</table>
+				</td>
+				<td class="fix_img_rt"/>
+				<td class="mod_data_rt" valign="top" width="185"/>
+			</tr>
+			<tr>
+				<td class="mod_data_lt" valign="top"/>
+				<td class="fix_img_lt"/>
+				<td align="right" valign="middle" class="mod_img" style="" colspan="1" rowspan="1">
+					<table height="84" width="100%">
+						<tr><td style="text-align: center; background: white; border: .5pt solid black; font-weight: bold; font-size: 8.5pt;">
+						Slot 7<br/>
+						Empty
+						</td></tr>
+					</table>
+				</td>
+				<td align="left" valign="middle" class="mod_img" rowspan="1">
+					<table height="84" width="100%">
+						<tr><td style="text-align: center; background: white; border: .5pt solid black; font-weight: bold; font-size: 8.5pt">
+								Slot 8<br/>
+								Empty
+								</td></tr>
+					</table>
+				</td>
+				<td class="fix_img_rt"/>
+				<td class="mod_data_rt" valign="top" width="185"/>
+			</tr>
+			<tr>
+				<td class="mod_data_lt" valign="top">
+					<div class="mod_name"><b>CLX-1DIM8</b></div>
+				Slot: 5<br/>Net-Device ID 62</td>
+				<td class="fix_img_lt" style="padding-right: 10pt">
+					<img src="CLX-1DIM8.bmp" alt="CLX-1DIM8" height="80" align="right"/>
+				</td>
+				<td align="right" valign="middle" class="mod_img" style="" colspan="1" rowspan="1">
+					<img class="device" width="80" height="80" src="mod_img_lt.bmp"/>
+				</td>
+				<td align="left" valign="middle" class="mod_img" rowspan="1">
+					<table height="84" width="100%">
+						<tr><td style="text-align: center; background: white; border: .5pt solid black; font-weight: bold; font-size: 8.5pt">
+								Slot 6<br/>
+								Empty
+								</td></tr>
+					</table>
+				</td>
+				<td class="fix_img_rt"/>
+				<td class="mod_data_rt" valign="top" width="185"/>
+			</tr>
+			<tr>
+				<td class="mod_data_lt" valign="top">
+					<div class="mod_name"><b>CLX-1DIM8</b></div>
+				Slot: 3<br/>Net-Device ID 61</td>
+				<td class="fix_img_lt" style="padding-right: 10pt">
+					<img src="CLX-1DIM8.bmp" alt="CLX-1DIM8" height="80" align="right"/>
+				</td>
+				<td align="right" valign="middle" class="mod_img" style="" colspan="1" rowspan="1">
+					<img class="device" width="80" height="80" src="mod_img_lt.bmp"/>
+				</td>
+				<td align="left" valign="middle" class="mod_img" rowspan="1">
+					<table height="84" width="100%">
+						<tr><td style="text-align: center; background: white; border: .5pt solid black; font-weight: bold; font-size: 8.5pt">
+								Slot 4<br/>
+								Empty
+								</td></tr>
+					</table>
+				</td>
+				<td class="fix_img_rt"/>
+				<td class="mod_data_rt" valign="top" width="185"/>
+			</tr>
+			<tr>
+				<td class="mod_data_lt" valign="top">
+					<div class="mod_name"><b>CLX-1DIM8</b></div>
+				Slot: 1<br/>Net-Device ID 60</td>
+				<td class="fix_img_lt" style="padding-right: 10pt">
+					<img src="CLX-1DIM8.bmp" alt="CLX-1DIM8" height="80" align="right"/>
+				</td>
+				<td align="right" valign="middle" class="mod_img" style="" colspan="1" rowspan="1">
+					<img class="device" width="80" height="80" src="mod_img_lt.bmp"/>
+				</td>
+				<td align="left" valign="middle" class="mod_img" rowspan="1">
+					<table height="84" width="100%">
+						<tr><td style="text-align: center; background: white; border: .5pt solid black; font-weight: bold; font-size: 8.5pt">
+								Slot 2<br/>
+								Empty
+								</td></tr>
+					</table>
+				</td>
+				<td class="fix_img_rt"/>
+				<td class="mod_data_rt" valign="top" width="185"/>
+			</tr>
+			<tr height="48">
+				<td>
+					<div class="mod_name"><b>CAEN-BLOCK</b></div>
+				Slot: 15<br/>
+				</td>
+				<td style="border-left: 1.5pt solid black; border-bottom: 1.5pt solid black; background: rgb(250,250,250)"/>
+				<td style="border-bottom: 1.5pt solid black; background: rgb(250,250,250)" colspan="2">
+					<center><img src="H-Block.bmp"/></center>
+				</td>
+				<td style="background: rgb(250,250,250); border-right: 1.5pt solid black; border-bottom: 1.5pt solid black; background: rgb(250,250,250)"/>
+				<td/>
+			</tr>
+		</table>
+		<br/>
+		<table class="default" width="100%">
+			<tr class="pageseparate">
+				<td class="pagetitle">
+					<b>Equipamentos/Sala de Equipamentos/DIM</b>
+				</td>
+			</tr>
+		</table>
+		<br/>
+		<table class="table_din_data" align="center">
+			<tr>
+				<td width="35%" class="din_rail_cell">
+					<table cellspacing="5">
+						<tr height="60%">
+							<td width="10%" style="text-align: right; font-size: 9pt">91</td>
+							<td width="80%">
+								<table class="table_din_rail" width="220">
+									<tr width="100%">
+										<td width="100%"></td>
+									</tr>
+								</table>
+							</td>
+							<td width="10%" style="text-align: left; font-size: 9pt">108</td>
+						</tr>
+					</table>
+				</td>
+				<td width="65%" class="din_rail_cell">
+					<table class="din_mod_data">
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td width="35%" class="din_rail_cell">
+					<table cellspacing="5">
+						<tr height="60%">
+							<td width="10%" style="text-align: right; font-size: 9pt">73</td>
+							<td width="80%">
+								<table class="table_din_rail" width="220">
+									<tr width="100%">
+										<td width="100%"></td>
+									</tr>
+								</table>
+							</td>
+							<td width="10%" style="text-align: left; font-size: 9pt">90</td>
+						</tr>
+					</table>
+				</td>
+				<td width="65%" class="din_rail_cell">
+					<table class="din_mod_data">
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td width="35%" class="din_rail_cell">
+					<table cellspacing="5">
+						<tr height="60%">
+							<td width="10%" style="text-align: right; font-size: 9pt">55</td>
+							<td width="80%">
+								<table class="table_din_rail" width="220">
+									<tr width="100%">
+										<td width="100%"></td>
+									</tr>
+								</table>
+							</td>
+							<td width="10%" style="text-align: left; font-size: 9pt">72</td>
+						</tr>
+					</table>
+				</td>
+				<td width="65%" class="din_rail_cell">
+					<table class="din_mod_data">
+						<tr>
+							<td width="2"/>
+							<td style="text-align: right">61-66:
+				</td>
+							<td>
+								<b>DIN-IO8</b> Net-Device ID 87
+							Load Wattage: 0</td>
+						</tr>
+						<tr>
+							<td width="2"/>
+							<td style="text-align: right">55-60:
+				</td>
+							<td>
+								<b>DIN-IO8</b> Net-Device ID 86
+							Load Wattage: 0</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td width="35%" class="din_rail_cell">
+					<table cellspacing="5">
+						<tr height="60%">
+							<td width="10%" style="text-align: right; font-size: 9pt">37</td>
+							<td width="80%">
+								<table class="table_din_rail" width="220">
+									<tr width="100%">
+										<td width="100%"></td>
+									</tr>
+								</table>
+							</td>
+							<td width="10%" style="text-align: left; font-size: 9pt">54</td>
+						</tr>
+					</table>
+				</td>
+				<td width="65%" class="din_rail_cell">
+					<table class="din_mod_data">
+						<tr>
+							<td width="2"/>
+							<td style="text-align: right">46-54:
+				</td>
+							<td>
+								<b>DIN-8SW8</b> Net-Device ID 85
+							Load Wattage: 200</td>
+						</tr>
+						<tr>
+							<td width="2"/>
+							<td style="text-align: right">37-45:
+				</td>
+							<td>
+								<b>DIN-8SW8</b> Net-Device ID 84
+							Load Wattage: 750</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td width="35%" class="din_rail_cell">
+					<table cellspacing="5">
+						<tr height="60%">
+							<td width="10%" style="text-align: right; font-size: 9pt">19</td>
+							<td width="80%">
+								<table class="table_din_rail" width="220">
+									<tr width="100%">
+										<td width="100%"></td>
+									</tr>
+								</table>
+							</td>
+							<td width="10%" style="text-align: left; font-size: 9pt">36</td>
+						</tr>
+					</table>
+				</td>
+				<td width="65%" class="din_rail_cell">
+					<table class="din_mod_data">
+						<tr>
+							<td width="2"/>
+							<td style="text-align: right">28-36:
+				</td>
+							<td>
+								<b>DIN-8SW8</b> Net-Device ID 83
+							Load Wattage: 790</td>
+						</tr>
+						<tr>
+							<td width="2"/>
+							<td style="text-align: right">19-27:
+				</td>
+							<td>
+								<b>DIN-8SW8</b> Net-Device ID 82
+							Load Wattage: 550</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td width="35%" class="din_rail_cell">
+					<table cellspacing="5">
+						<tr height="60%">
+							<td width="10%" style="text-align: right; font-size: 9pt">1</td>
+							<td width="80%">
+								<table class="table_din_rail" width="220">
+									<tr width="100%">
+										<td width="100%"></td>
+									</tr>
+								</table>
+							</td>
+							<td width="10%" style="text-align: left; font-size: 9pt">18</td>
+						</tr>
+					</table>
+				</td>
+				<td width="65%" class="din_rail_cell">
+					<table class="din_mod_data">
+						<tr>
+							<td width="2"/>
+							<td style="text-align: right">10-18:
+				</td>
+							<td>
+								<b>DIN-8SW8</b> Net-Device ID 81
+							Load Wattage: 600</td>
+						</tr>
+						<tr>
+							<td width="2"/>
+							<td style="text-align: right">1-9:
+				</td>
+							<td>
+								<b>DIN-8SW8</b> Net-Device ID 80
+							Load Wattage: 570</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<br/>
+	</body>
+</html>

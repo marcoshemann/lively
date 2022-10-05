@@ -1,0 +1,412 @@
+/*******************************************************************************************
+  SIMPL+ Module Information
+  (Fill in comments below)
+*******************************************************************************************/
+/*
+Dealer Name: Crestron Electronics, Inc.
+System Name:
+System Number:
+Programmer: LP
+Comments:
+*/
+
+/*******************************************************************************************
+  Compiler Directives
+  (Uncomment and declare compiler directives as needed)
+*******************************************************************************************/
+// #ENABLE_DYNAMIC
+#SYMBOL_NAME "Denon AVR-3313CI IP v1.1 Processor"
+// #HINT ""
+// #DEFINE_CONSTANT
+// #CATEGORY "" 
+// #PRINT_TO_TRACE
+// #DIGITAL_EXPAND 
+// #ANALOG_SERIAL_EXPAND 
+// #OUTPUT_SHIFT 
+// #HELP_PDF_FILE ""
+#DEFAULT_VOLATILE
+#ENABLE_STACK_CHECKING
+#ENABLE_TRACE
+#ENCODING_ASCII
+// #ENCODING_UTF16
+// #ENCODING_INHERIT_FROM_PARENT
+// #ENCODING_INHERIT_FROM_PROGRAM
+
+#HELP_BEGIN
+To be used with the Denon AVR-3313CI IP v1.1.umc module only.
+Not to be used as a stand-alone module.
+#HELP_END
+/*******************************************************************************************
+  DIGITAL, ANALOG and SERIAL INPUTS and OUTPUTS
+  (Uncomment and declare inputs and outputs as needed)
+*******************************************************************************************/
+// DIGITAL_INPUT 
+// ANALOG_INPUT 
+// STRING_INPUT 
+BUFFER_INPUT From_Device[50000];
+DIGITAL_INPUT AM_Selected;
+DIGITAL_INPUT FM_Selected;
+DIGITAL_INPUT Clear;
+DIGITAL_INPUT HD_Tuner_KP[12];
+BUFFER_INPUT Response_NSE[125];
+
+DIGITAL_OUTPUT Highlight_Line[8];
+STRING_OUTPUT Main_Volume_Text;
+ANALOG_OUTPUT Main_Volume_Gauge;
+STRING_OUTPUT Zone_2_Volume_Text;
+ANALOG_OUTPUT Zone_2_Volume_Gauge;
+STRING_OUTPUT Zone_3_Volume_Text;
+ANALOG_OUTPUT Zone_3_Volume_Gauge;
+STRING_OUTPUT Front_Left_Level_Text;
+STRING_OUTPUT Front_Right_Level_Text;
+STRING_OUTPUT Center_Level_Text;
+STRING_OUTPUT Subwoofer_Level_Text;
+STRING_OUTPUT Surround_Left_Level_Text;
+STRING_OUTPUT Surround_Right_Level_Text;
+STRING_OUTPUT Surround_Back_Left_Level_Text;
+STRING_OUTPUT Surround_Back_Right_Level_Text;
+STRING_OUTPUT Surround_Back_Level_Text;
+STRING_OUTPUT Front_Height_Left_Level_Text;
+STRING_OUTPUT Front_Height_Right_Level_Text;
+STRING_OUTPUT Front_Wide_Left_Level_Text;
+STRING_OUTPUT Front_Wide_Right_Level_Text;
+STRING_OUTPUT Tuner_Frequency;
+STRING_OUTPUT To_Device;
+STRING_OUTPUT Line_Out[9];
+/*******************************************************************************************
+  Global Variables
+  (Uncomment and declare global variables as needed)
+  Note:  Be sure to initialize all declared STRING variables as needed
+         For example, in Function Main: myString = "";
+*******************************************************************************************/
+INTEGER iProcessFromDevice;
+INTEGER iValue;
+INTEGER iMVMAX;
+INTEGER iStationValue;
+INTEGER iSemaphore;
+STRING sHDTunerNumber[4];
+STRING sHDTunerCommand[10];
+
+STRING sFromDevice[5000];
+STRING sResponse[125];
+STRING sDump[150];
+STRING sSelectedChar[1];
+INTEGER iStringNumber;
+/*******************************************************************************************
+  Functions
+  (Add any additional functions here)
+  Note:  Functions must be physically placed before the location in
+         the code that calls them.
+*******************************************************************************************/
+String_Function Calculate_Level(INTEGER iValue)
+{
+	STRING sLevelText[8];
+
+	if(iValue >= 500)				// 0 to 12 dB
+		makestring(sLevelText, "%+d.%d dB", (iValue - 500) / 10, (iValue - 500) mod 10);
+	else							// -12 to -0.5 dB
+		makestring(sLevelText, "-%d.%d dB", (500 - iValue) / 10, (500 - iValue) mod 10); 
+    return (sLevelText);
+}
+
+
+/*******************************************************************************************
+  Event Handlers
+  (Uncomment and declare additional event handlers as needed)
+*******************************************************************************************/
+PUSH HD_Tuner_KP		// used to send channel number command
+{
+	INTEGER a;
+
+	switch(getlastmodifiedarrayindex())
+	{
+		case(1):
+		{
+			if(len(sHDTunerNumber) < 4)
+			makestring(sHDTunerNumber, "%s1", sHDTunerNumber);
+		}
+		case(2):
+		{
+			if(len(sHDTunerNumber) < 4)
+			makestring(sHDTunerNumber, "%s2", sHDTunerNumber);
+		}
+		case(3):
+		{
+			if(len(sHDTunerNumber) < 4)
+			makestring(sHDTunerNumber, "%s3", sHDTunerNumber);
+		}
+		case(4):
+		{
+			if(len(sHDTunerNumber) < 4)
+			makestring(sHDTunerNumber, "%s4", sHDTunerNumber);
+		}
+		case(5):
+		{
+			if(len(sHDTunerNumber) < 4)
+			makestring(sHDTunerNumber, "%s5", sHDTunerNumber);
+		}
+		case(6):
+		{
+			if(len(sHDTunerNumber) < 4)
+			makestring(sHDTunerNumber, "%s6", sHDTunerNumber);
+		}
+		case(7):
+		{
+			if(len(sHDTunerNumber) < 4)
+			makestring(sHDTunerNumber, "%s7", sHDTunerNumber);
+		}
+		case(8):
+		{
+			if(len(sHDTunerNumber) < 4)
+			makestring(sHDTunerNumber, "%s8", sHDTunerNumber);
+		}
+		case(9):
+		{
+			if(len(sHDTunerNumber) < 4)
+			makestring(sHDTunerNumber, "%s9", sHDTunerNumber);
+		}
+		case(10):
+		{
+			if(len(sHDTunerNumber) < 4)
+			makestring(sHDTunerNumber, "%s0", sHDTunerNumber);
+		}
+		case(11):		// clear
+		{
+			clearbuffer(sHDTunerNumber);
+		}
+		case(12):		// send
+		{
+			if(AM_Selected)
+			{
+				if(len(sHDTunerNumber) = 3)
+					makestring(To_Device, "TFHD0%s00\x0D", sHDTunerNumber);
+				else if(len(sHDTunerNumber) = 4)
+					makestring(To_Device, "TFHD%s00\x0D", sHDTunerNumber);
+			}
+			if(FM_Selected)
+			{
+				if(len(sHDTunerNumber) = 3)
+					makestring(To_Device, "TFHD00%s0\x0D", sHDTunerNumber);
+				else if(len(sHDTunerNumber) = 4)
+					makestring(To_Device, "TFHD0%s0\x0D", sHDTunerNumber);
+			}
+			clearbuffer(sHDTunerNumber);
+		}
+	}
+	if(len(sHDTunerNumber) > 0)		// if number string exists
+	{
+		if(AM_Selected)
+			makestring(Tuner_Frequency, "%s*", sHDTunerNumber);	// send to text field 
+		if(FM_Selected)
+			makestring(Tuner_Frequency, "%s.%s*", left(sHDTunerNumber, len(sHDTunerNumber) - 1), right(sHDTunerNumber, 1));	// send to text field 
+	}
+	else							// if not
+		makestring(Tuner_Frequency, "*");		// clear text field
+}
+
+// Function for processing message received from Device via CHANGE From_Device
+FUNCTION ProcessDeviceRxMsg()
+{
+    if(find("MVMAX", sResponse) = 1)	// master volume max
+    {
+        iMVMAX = atoi(sResponse);
+        if(len(sResponse) = 9)			// value has 2 char (90 vs 895) 
+            iMVMAX = iMVMAX * 10;		// append "0" to value (900)
+    }
+    else if(find("MV", sResponse) = 1)	// master volume
+    {
+        iValue = atoi(sResponse);
+        if(len(sResponse) = 5)			// value has 2 char (90 vs 895)
+            iValue = iValue * 10;		// append "0" to value (900)
+        if(iValue >= 800)				// 0 to 18 dB
+            makestring(Main_Volume_Text, "%+d.%ddB", (iValue - 800) / 10, (iValue - 800) mod 10);
+        else if(iValue >= 5)			// -79.5 to -0.5 dB
+            makestring(Main_Volume_Text, "-%d.%ddB", (800 - iValue) / 10, (800 - iValue) mod 10);
+        else							// ---
+            makestring(Main_Volume_Text, "---.-dB");
+        Main_Volume_Gauge = (iValue * 65535) / iMVMAX;
+    }
+    else if(find("Z2", sResponse) = 1 && byte(sResponse, 3) > 47 && byte(sResponse, 3) < 58)	// zone 2 volume
+    {
+        iValue = atoi(mid(sResponse, 3, 2));
+        if(iValue >= 80)				// 0 to 18 dB
+            makestring(Zone_2_Volume_Text, "+%ddB", (iValue - 80));
+        else if(iValue >= 1)			// -79 to 1 dB
+            makestring(Zone_2_Volume_Text, "-%ddB", (80 - iValue));
+        else							// ---
+            makestring(Zone_2_Volume_Text, "---dB");
+        Zone_2_Volume_Gauge = (iValue * 65535) / 98;
+    }
+    else if(find("Z3", sResponse) = 1 && byte(sResponse, 3) > 47 && byte(sResponse, 3) < 58)	// zone 2 volume
+    {
+        iValue = atoi(mid(sResponse, 3, 2));
+        if(iValue >= 80)				// 0 to 18 dB
+            makestring(Zone_3_Volume_Text, "+%ddB", (iValue - 80));
+        else if(iValue >= 1)			// -79 to 1 dB
+            makestring(Zone_3_Volume_Text, "-%ddB", (80 - iValue));
+        else							// ---
+            makestring(Zone_3_Volume_Text, "---dB");
+        Zone_3_Volume_Gauge = (iValue * 65535) / 98;
+    }
+    else if(find("CVFL", sResponse) = 1)// front left volume
+    {
+        iValue = atoi(sResponse);
+        if(len(sResponse) = 8)			// value has 2 char (50 vs 495)
+            iValue = iValue * 10;		// append "0" to value (500)
+        Front_Left_Level_Text = Calculate_Level(iValue);
+    }
+    else if(find("CVFR", sResponse) = 1)// front right volume
+    {
+        iValue = atoi(sResponse);
+        if(len(sResponse) = 8)			// value has 2 char (50 vs 495)
+            iValue = iValue * 10;		// append "0" to value (500)
+        Front_Right_Level_Text = Calculate_Level(iValue);
+    }
+    else if(find("CVC", sResponse) = 1)	// center volume
+    {
+        iValue = atoi(sResponse);
+        if(len(sResponse) = 7)			// value has 2 char (50 vs 495)
+            iValue = iValue * 10;		// append "0" to value (500)
+        Center_Level_Text = Calculate_Level(iValue);
+    }
+    else if(find("CVSW", sResponse) = 1)// subwoofer volume
+    {
+        iValue = atoi(sResponse);
+        if(len(sResponse) = 8)			// value has 2 char (50 vs 495)
+            iValue = iValue * 10;		// append "0" to value (500)
+        Subwoofer_Level_Text = Calculate_Level(iValue);
+    }
+    else if(find("CVSL", sResponse) = 1)// surround left volume
+    {
+        iValue = atoi(sResponse);
+        if(len(sResponse) = 8)			// value has 2 char (50 vs 495)
+            iValue = iValue * 10;		// append "0" to value (500)
+        Surround_Left_Level_Text = Calculate_Level(iValue);
+    }
+    else if(find("CVSR", sResponse) = 1)// surround right volume
+    {
+        iValue = atoi(sResponse);
+        if(len(sResponse) = 8)			// value has 2 char (50 vs 495)
+            iValue = iValue * 10;		// append "0" to value (500)
+        Surround_Right_Level_Text = Calculate_Level(iValue);
+    }
+    else if(find("CVSBL", sResponse) = 1)// surrond back left volume
+    {
+        iValue = atoi(sResponse);
+        if(len(sResponse) = 9)			// value has 2 char (50 vs 495)
+            iValue = iValue * 10;		// append "0" to value (500)
+        Surround_Back_Left_Level_Text = Calculate_Level(iValue);
+    }
+    else if(find("CVSBR", sResponse) = 1)// surround back right volume
+    {
+        iValue = atoi(sResponse);
+        if(len(sResponse) = 9)			// value has 2 char (50 vs 495)
+            iValue = iValue * 10;		// append "0" to value (500)
+        Surround_Back_Right_Level_Text = Calculate_Level(iValue);
+    }
+    else if(find("CVSB", sResponse) = 1)// surround back volume
+    {
+        iValue = atoi(sResponse);
+        if(len(sResponse) = 8)			// value has 2 char (50 vs 495)
+            iValue = iValue * 10;		// append "0" to value (500)
+        Surround_Back_Level_Text = Calculate_Level(iValue);
+    }
+    else if(find("CVFHL", sResponse) = 1)// front height left volume
+    {
+        iValue = atoi(sResponse);
+        if(len(sResponse) = 9)			// value has 2 char (50 vs 495)
+            iValue = iValue * 10;		// append "0" to value (500)
+        Front_Height_Left_Level_Text = Calculate_Level(iValue);
+    }
+    else if(find("CVFHR", sResponse) = 1)// front height right volume
+    {
+        iValue = atoi(sResponse);
+        if(len(sResponse) = 9)			// value has 2 char (50 vs 495)
+            iValue = iValue * 10;		// append "0" to value (500)
+        Front_Height_Right_Level_Text = Calculate_Level(iValue);
+    }
+    else if(find("CVFWL", sResponse) = 1)// front wide left volume
+    {
+        iValue = atoi(sResponse);
+        if(len(sResponse) = 9)			// value has 2 char (50 vs 495)
+            iValue = iValue * 10;		// append "0" to value (500)
+        Front_Wide_Left_Level_Text = Calculate_Level(iValue);
+    }
+    else if(find("CVFWR", sResponse) = 1)// front wide right volume
+    {
+        iValue = atoi(sResponse);
+        if(len(sResponse) = 9)			// value has 2 char (50 vs 495)
+            iValue = iValue * 10;		// append "0" to value (500)
+        Front_Wide_Right_Level_Text = Calculate_Level(iValue);
+    }
+    else if(find("NSE", sResponse) = 1)
+    {
+        sDump = Remove("NSE", sResponse);
+        iStringNumber = atoi(sResponse);
+        sDump = removebylength(1, sResponse);
+        if(iStringNumber = 0 || iStringNumber = 8)
+        {
+            sDump = Left(sResponse, Find("\x0D", sResponse));
+            sDump = left(sDump, find("\x00", sDump) - 1);
+            Line_Out[iStringNumber + 1] = sDump;
+        }
+        else
+        {
+            sSelectedChar = removebylength(1, sResponse);
+
+            if(bit(sSelectedChar, 1, 3) = 0)
+                Highlight_Line[iStringNumber + 1] = 0;
+
+            if(bit(sSelectedChar, 1, 3))
+            {
+                Highlight_Line[iStringNumber + 1] = 1;
+            }
+            sDump = left(sResponse, find("\x0D", sResponse) - 1);
+            sDump = left(sDump, find("\x00", sDump) - 1);
+            Line_Out[iStringNumber + 1] = sDump;
+        }
+    }
+}
+
+#if_series3
+THREADSAFE CHANGE From_Device
+{
+    while (1)
+    {
+        try
+        {
+			sResponse = gather("\x0D", From_Device);
+            ProcessDeviceRxMsg();        
+        }
+        catch
+        {
+            print("Issue with Device Rx message handeling\n"); 
+        }
+    }
+}
+#else
+CHANGE From_Device
+{
+	if(iProcessFromDevice = 0)
+	{
+		iProcessFromDevice = 1;
+		while(find("\x0D", From_Device))
+		{
+			sResponse = remove("\x0D", From_Device);
+            ProcessDeviceRxMsg();
+		}
+		iProcessFromDevice = 0;
+	}
+}
+#endif
+/*******************************************************************************************
+  Main()
+  Uncomment and place one-time startup code here
+  (This code will get called when the system starts up)
+*******************************************************************************************/
+Function Main()
+{
+	iProcessFromDevice = 0;
+	iSemaphore = 0;
+	iMVMAX = 65535;
+}

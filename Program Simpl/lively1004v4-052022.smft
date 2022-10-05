@@ -1,0 +1,15 @@
+<Device Model="CP3">
+   <Network Type="Cresnet" Id="01"/>
+   <Network Type="Ethernet" Id="02">
+      <Device Model="CEN-NSP-1" DeviceId="05"/>
+      <Device Model="TPMC-3SMD" DeviceId="10" Name="TPMC-3SMD-Hall"/>
+      <Device Model="TPMC-4SMD" DeviceId="22" Name="Suite Master Marcos"/>
+      <Device Model="TPMC-4SMD" DeviceId="23" Name="Suite Master Silvi"/>
+      <Device Model="TPMC-4SMD" DeviceId="24" Name="Suite Single Nine"/>
+      <Device Model="TSW-750" DeviceId="25" Name="T-02  Living"/>
+      <Device Model="Crestron_App" DeviceId="33" Name="T-05  iPhone 3 - Marcos"/>
+      <Device Model="Crestron_App" DeviceId="34" Name="T-03  iPhone 1 - Catharine"/>
+      <Device Model="Crestron_App" DeviceId="35" Name="T-04  iPhone 2 - Silvi"/>
+      <Device Model="Crestron_App" DeviceId="36" Name="T-01 iPad 1"/>
+   </Network>
+</Device>

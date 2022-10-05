@@ -1,0 +1,34 @@
+<Device Model="PAC2M">
+   <Network Type="Cresnet" Id="03">
+      <Device Model="CNX-B12" DeviceId="11" Name="TE01"/>
+      <Device Model="CNX-B12" DeviceId="12" Name="TE02"/>
+      <Device Model="CNX-B12" DeviceId="13" Name="TE03"/>
+      <Device Model="CNX-B8" DeviceId="14" Name="TE04"/>
+      <Device Model="CNX-B12" DeviceId="15" Name="TE05"/>
+      <Device Model="CNX-B6" DeviceId="16" Name="TE06"/>
+      <Device Model="CNX-B6" DeviceId="17" Name="TE07"/>
+      <Device Model="CNX-B4" DeviceId="18" Name="TE08"/>
+      <Device Model="CNX-B4" DeviceId="19" Name="TE09"/>
+      <Device Model="CNX-B4" DeviceId="20" Name="TE10"/>
+      <Device Model="CNX-B4" DeviceId="21" Name="TE11"/>
+      <Device Model="CNX-B4" DeviceId="22" Name="TE12"/>
+      <Device Model="CNX-B4" DeviceId="23" Name="TE13"/>
+      <Device Model="CLX-1DIM8" DeviceId="60" Name="MO01"/>
+      <Device Model="CLX-1DIM8" DeviceId="61" Name="MO02"/>
+      <Device Model="CLX-1DIM8" DeviceId="62" Name="MO03"/>
+      <Device Model="DIN-8SW8" DeviceId="80" Name="MO04"/>
+      <Device Model="DIN-8SW8" DeviceId="81" Name="MO05"/>
+      <Device Model="DIN-8SW8" DeviceId="82" Name="MO06"/>
+      <Device Model="DIN-8SW8" DeviceId="83" Name="MO07"/>
+      <Device Model="DIN-8SW8" DeviceId="84" Name="MO08"/>
+      <Device Model="DIN-8SW8" DeviceId="85" Name="MO17"/>
+      <Device Model="DIN-IO8" DeviceId="86" Name="MO09"/>
+      <Device Model="DIN-IO8" DeviceId="87" Name="MO18"/>
+      <Device Model="C2N-SDC" DeviceId="A0" Name="Net-Device ID A0"/>
+      <Device Model="C2N-SDC" DeviceId="A1" Name="Net-Device ID A1"/>
+      <Device Model="C2N-SDC" DeviceId="A2" Name="Net-Device ID A2"/>
+      <Device Model="C2N-SDC" DeviceId="A3" Name="Net-Device ID A3"/>
+      <Device Model="C2N-SDC" DeviceId="A4" Name="Net-Device ID A4"/>
+   </Network>
+   <Network Type="Ethernet" Id="04"/>
+</Device>

@@ -1,0 +1,95 @@
+[BEGIN]
+  Version=1
+[END]
+[BEGIN]
+  ObjTp=FSgntr
+  Sgntr=CresSPlus
+  RelVrs=1
+  IntStrVrs=1
+  SPlusVrs=4.02.26
+  CrossCplrVrs=1.3
+[END]
+[BEGIN]
+  ObjTp=Hd
+[END]
+[BEGIN]
+  ObjTp=Symbol
+  Exclusions=1,19,20,21,88,89,167,168,179,213,214,215,216,217,225,226,248,249,266,267,310,362,378,380,405,407,408,409,478,522,537,554,586,590,611,624,718,756,767,830,841,842,854,883,955,1032,1062,1079,1128,1129,1134,1140,1157,1158,1195,1199,1220,1221,1222,1223,1299,1348,1349,1439,1472,1473,1499,1746,1803,1975,2229,2354,2514,2523,2532,2706,2707,3235,3236,3427,3454,3567,3568,3601,3602,3708,3902,3903,3912,3918,3925,3926,4206,4207,
+  Exclusions_CDS=5
+  Inclusions_CDS=6
+  Name=TV Presets Helper v1.0 (cm)
+  SmplCName=TV Presets Helper v1.0.csp
+  Code=1
+  SysRev5=4.006
+  SMWRev=3.00.00
+  InputCue1=Sequence_Busy
+  InputSigType1=Digital
+  InputCue2=Need_Enter
+  InputSigType2=Digital
+  InputList2Cue1=Min_Channel_Len
+  InputList2SigType1=Analog
+  InputList2Cue2=Channel_In$
+  InputList2SigType2=Serial
+  OutputList2Cue1=Channel_Out$
+  OutputList2SigType1=Serial
+  ParamCue1=[Reference Name]
+  ParamCue2=delay_between_sequences
+  ParamSigType2=Time
+  MinVariableInputs=2
+  MaxVariableInputs=2
+  MinVariableInputsList2=2
+  MaxVariableInputsList2=2
+  MinVariableOutputs=0
+  MaxVariableOutputs=0
+  MinVariableOutputsList2=1
+  MaxVariableOutputsList2=1
+  MinVariableParams=1
+  MaxVariableParams=1
+  Expand=expand_separately
+  Expand2=expand_separately
+  ProgramTree=Logic
+  SymbolTree=0
+  Hint=
+  PdfHelp=
+  HelpID= 
+  Render=4
+  Smpl-C=16
+  CompilerCode=-48
+  CompilerParamCode=27
+  CompilerParamCode5=14
+  NumFixedParams=1
+  Pp1=1
+  Pp2=2
+  MPp=2
+  NVStorage=10
+  ParamSigType1=String
+  SmplCInputCue1=o#
+  SmplCOutputCue1=i#
+  SmplCInputList2Cue1=an#
+  SmplCOutputList2Cue1=ai#
+  SPlus2CompiledName=S2_TV_Presets_Helper_v1_0
+  SymJam=NonExclusive
+  FileName=TV Presets Helper v1.0.csh
+  SIMPLPlusModuleEncoding=0
+  clz1=TV Presets
+  clz2=AppHelperClasses
+[END]
+[BEGIN]
+  ObjTp=Dp
+  H=1
+  Tp=1
+  NoS=False
+[END]
+[BEGIN]
+  ObjTp=Dp
+  H=2
+  Tp=1
+  SD=status_bar_hint_text
+  HD=False
+  Sgn=0
+  Lng=False
+  NF=16
+  NoS=True
+  DNF=16
+  VVS=0
+[END]
