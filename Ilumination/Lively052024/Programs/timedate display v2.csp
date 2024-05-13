@@ -1,0 +1,51 @@
+#CATEGORY "0" //hidden
+
+analog_input morning_hour;
+analog_input morning_minute;
+analog_input night_hour;
+analog_input night_minute;
+string_output sunrise;
+string_output sunset;
+
+digital_input report_timeinfo;
+
+string_function GetFormattedTime(integer iHours, integer iMinutes, integer iSeconds)
+{
+   string sTime[12];
+
+   if (iHours = 0)
+     makestring(sTime,"12:%02d:%02d AM", iMinutes, iSeconds);
+   else if (iHours < 12)
+     makestring(sTime,"%d:%02d:%02d AM", iHours, iMinutes, iSeconds);
+   else if (iHours = 12)
+     makestring(sTime,"12:%02d:%02d PM", iMinutes, iSeconds);
+   else
+     makestring(sTime,"%d:%02d:%02d PM", iHours - 12, iMinutes, iSeconds);
+   
+   return(sTime);     
+}
+
+push report_timeinfo
+{
+   print("\nSystem Time/Date info:\n");
+   print("----------------------\n");
+   print("Today's date: %02d/%02d/%d\n\n", GetMonthNum(), GetDateNum(), GetYearNum());
+   print("Current Time: %s\n\n", GetFormattedTime(GetHourNum(), GetMinutesNum(), GetSecondsNum()));
+   print("Sunrise today occurs at %s\n", GetFormattedTime(morning_hour, morning_minute, 0));
+   print("Sunset today occurs at %s\n", GetFormattedTime(night_hour, night_minute, 0));
+}
+
+Change Morning_Hour
+Change Night_Hour
+Change Morning_Minute
+Change Night_Minute
+{
+	sunrise=GetFormattedTime(morning_hour, morning_minute, 0);
+	sunset=GetFormattedTime(night_hour, night_minute, 0);	
+}
+
+Function Main()
+{    
+	sunrise=GetFormattedTime(morning_hour, morning_minute, 0);
+	sunset=GetFormattedTime(night_hour, night_minute, 0);
+}

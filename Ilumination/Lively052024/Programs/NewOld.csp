@@ -1,0 +1,111 @@
+#SYMBOL_NAME "New or Old Program engine v1.1 (cm)"
+#CATEGORY "0" //Hidden
+
+#define_constant PROGRAM_COMMENT_SIZE	     1000
+#define_constant PROGRAM_NAME_SIZE           255
+#define_constant PROGRAM_COMPILED_ON_SIZE    30
+
+#default_volatile
+
+digital_input ReTrigger;
+buffer_input console_rx$[PROGRAM_COMMENT_SIZE];    
+
+digital_output NewProgram;
+digital_output ExistingProgram;
+digital_output DifferentProgram;
+digital_output DifferentCompiledOnDate;
+
+string_output console_tx$;
+
+nonvolatile string SourceFile[PROGRAM_NAME_SIZE];
+nonvolatile string CompiledOn[PROGRAM_COMPILED_ON_SIZE];
+string tempSourceFile[PROGRAM_NAME_SIZE];
+string tempCompiledOn[PROGRAM_COMPILED_ON_SIZE];
+
+integer DoneFlag;
+
+function GetInfo()
+{
+	NewProgram=0;
+	ExistingProgram=0;
+	DifferentProgram=0;
+	DifferentCompiledOnDate=0;
+    
+    DoneFlag=0;
+	
+	ClearBuffer(console_rx$);
+    ClearBuffer(tempSourceFile);
+    ClearBuffer(tempCompiledOn);
+#IF_SERIES2
+    console_tx$ = "PROGCOMMENTS\n";
+#ELSE
+	makestring(console_tx$, "PROGCOMMENTS:%d\n", GetProgramNumber());
+#ENDIF
+}
+
+change console_rx$
+{	
+	integer pos1, pos2;
+
+    if(len(tempSourceFile)=0)
+	{
+	    pos1 = find("\x0D\x0ASource File:  ", console_rx$); 
+		pos2 = find("\x0D", console_rx$, pos1+1);
+		if(pos1>0 && pos2>0)
+	    {
+	        tempSourceFile = mid(console_rx$, pos1+16, pos2-(pos1+16));
+	    }
+	}
+    
+	if(len(tempCompiledOn)=0)
+    {
+	    pos1 = find("\x0D\x0ACompiled On:  ", console_rx$); 
+		pos2 = find("\x0D", console_rx$, pos1+1);
+		if(pos1>0 && pos2>0)
+	    {        
+	        tempCompiledOn = mid(console_rx$, pos1+16, pos2-(pos1+16));
+            // Set the Done flag here.  The "Compiled On:" text is the furthest thing into the program
+            // comments that we're looking for so it's safe to set it here.
+            DoneFlag=1;
+	    }
+    }
+    
+	if(DoneFlag)
+    {
+	    if( tempSourceFile <> SourceFile )
+		{		
+	        SourceFile = tempSourceFile;	        DifferentProgram = 1;
+		}
+	
+		if( tempCompiledOn <> CompiledOn )
+		{
+			CompiledOn = tempCompiledOn;
+	        DifferentCompiledOnDate = 1;
+		}
+	
+	    if( DifferentProgram || DifferentCompiledOnDate )
+	    {
+	        NewProgram=1;
+	    }
+		else
+	    {
+			ExistingProgram=1;
+	    }
+        
+        // Now that we've found everything we need, set DoneFlag to false.  In all likelyhood, console_rx$ will
+        // continue to activate the change statement for a little bit, so we want to avoid retriggering this
+        // output stage, since the "DifferentProgram" and "DifferentCompiledOnDate" flags won't get set properly.
+        DoneFlag=0;
+    }
+}
+
+push ReTrigger
+{
+	GetInfo();
+}
+
+function main()
+{
+	WaitForInitializationComplete();
+	GetInfo();
+}
